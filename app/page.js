@@ -33,8 +33,8 @@ export default function Home() {
       </section>
       <section>
         <Container>
-          <div className="flex py-16">
-            <div className=" flex items-center justify-center flex-1">
+          <div className="flex flex-col lg:flex-row py-16">
+            <div className=" flex  items-center justify-center flex-1">
               <Image
                 src="/account.svg"
                 alt="account"
@@ -43,18 +43,18 @@ export default function Home() {
                 className="w-[470px]"
               />
             </div>
-            <div className="flex-1 mt-10">
+            <div className="flex-1 mt-10 px-4 lg:px-0">
               <h2 className="text-sem  font-bold text-center lg:text-left bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
                 Find the right Person for the job
               </h2>
-              <h2 className="text-4xl font-bold mt-4">
+              <h2 className="text-4xl font-bold mt-4 text-center lg:text-left">
                 We Help Your <br /> Company To Grow
               </h2>
-              <p className="mt-4 font-light text-center lg:text-left w-[80%]">
+              <p className="mt-4 font-light text-center lg:text-left w-[100%] lg:w-[80%]">
                 is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industrys standard dummy
               </p>
-              <p className="mt-2 font-light text-center lg:text-left w-[80%] ">
+              <p className="mt-2 font-light text-center lg:text-left w-[100%] lg:w-[80%] ">
                 Ipsum has been the industrys standard dummy
               </p>
               <div className="flex space-x-2 items-center justify-center lg:justify-start mt-4 mb-20 lg:mb-8">

@@ -164,9 +164,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
-      <section className="mt-4 lg:mt-12 px-3">
+      <section className="mt-4 lg:mt-12 px-3 ">
         <Container>
-          <div className="flex flex-col lg:flex-row items-center">
+          <div className="flex flex-col lg:flex-row items-center py-12">
             <div className="w-[100%] mx-auto flex-1 flex justify-center items-center mt-6">
               <Image
                 src="/oder.svg"

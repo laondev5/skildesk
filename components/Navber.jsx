@@ -5,12 +5,10 @@ import { Button } from "./ui/button";
 import { MenuIcon, Bell } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
-
-
 const navItem = [
-    { name: "Home", link:"/home" },
-    { name: "About", link:"/about" },
-    { name: "Contact", link:"/contact" },
+  { name: "Home", link: "/home" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
 ];
 const Navber = () => {
   return (
@@ -19,41 +17,46 @@ const Navber = () => {
         <div className="flex justify-between items-center">
           <div className="ml-2 lg:ml-0">Logo</div>
           {/* desktop navbar */}
-          <div className="hidden lg:flex">
-          {navItem.map((route, i) => (
-                  <Button key={i} asChild variant="ghost">
-                    <Link
-                      key={i}
-                      href={route.link}
-                      className="text-sm transition-colors font-medium"
-                    >
-                      {route.name}
-                    </Link>
-                  </Button>
-                ))}
+          <div className="hidden lg:flex space-x-4">
+            {navItem.map((route, i) => (
+              <Button key={i} asChild variant="ghost">
+                <Link
+                  key={i}
+                  href={route.link}
+                  className="text-sm transition-colors font-medium"
+                >
+                  {route.name}
+                </Link>
+              </Button>
+            ))}
+            <div className="flex items-center space-x-3">
+              <Button asChild variant="ghost">
+                <Link href="/login">Login</Link>
+              </Button>
+              <Button asChild variant="main">
+                <Link href="/register">Register</Link>
+              </Button>
+            </div>
           </div>
           {/* mobile navbar */}
           <div className="flex lg:hidden">
-          <Sheet>
+            <Sheet>
               <SheetTrigger>
                 <MenuIcon className="w-6 h-6 lg:hidden mr-2 lg:mr-2" />
               </SheetTrigger>
               <SheetContent>
                 <nav className="flex flex-col mx-6 space-y-4 lg:space-x-6">
-                 
-                      {navItem.map((route, i) => (
-                        <Button key={i}  asChild variant="ghost">
-                          <Link
-                            key={i}
-                            href={route.link}
-                            className="text-sm transition-colors font-medium"
-                          >
-                            {route.name}
-                          </Link>
-                        </Button>
-                      ))}
-                   
-                  
+                  {navItem.map((route, i) => (
+                    <Button key={i} asChild variant="ghost">
+                      <Link
+                        key={i}
+                        href={route.link}
+                        className="text-sm transition-colors font-medium"
+                      >
+                        {route.name}
+                      </Link>
+                    </Button>
+                  ))}
                 </nav>
               </SheetContent>
             </Sheet>

@@ -45,7 +45,7 @@ const Navber = () => {
                 <MenuIcon className="w-6 h-6 lg:hidden mr-2 lg:mr-2" />
               </SheetTrigger>
               <SheetContent>
-                <nav className="flex flex-col mx-6 space-y-4 lg:space-x-6">
+                <nav className=" relative flex flex-col mx-6 space-y-4 lg:space-x-6 h-screen w-full">
                   {navItem.map((route, i) => (
                     <Button key={i} asChild variant="ghost">
                       <Link
@@ -57,6 +57,14 @@ const Navber = () => {
                       </Link>
                     </Button>
                   ))}
+                  <div className="absolute bottom-4 left-0 items-center w-full">
+                    <Button asChild variant="ghost" className="w-full my-4">
+                      <Link href="/login">Login</Link>
+                    </Button>
+                    <Button asChild variant="main" className="w-full mb-3">
+                      <Link href="/register">Register</Link>
+                    </Button>
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>

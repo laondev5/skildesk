@@ -37,8 +37,8 @@ const page = () => {
         </Container>
       </div>
       <div className="z-[10]">
-        <div className="flex items-center">
-          <div className="w-[40%] pt-[6rem] hidden lg:flex">
+        <div className="flex flex-col lg:flex-row items-center">
+          <div className=" w-[100%] lg:w-[40%] pt-[6rem] flex">
             <div className="w-[80%] mx-auto mt-4   pb-12">
               <h1 className="text-5xl text-center lg:text-left font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
                 What will <br /> be the next step?
@@ -48,7 +48,7 @@ const page = () => {
                 Lorem Ipsum has been the industrys standard dummy
               </p>
 
-              <div className="mt-4 flex">
+              <div className="mt-4 flex p-4 shadow-md rounded-lg">
                 <div className="w-[30%] flex justify-center items-center">
                   <div className="flex items-center justify-center rounded-full w-[2rem] h-[2rem] bg-purple-700 hover:bg-blue-950 shadow-md">
                     <h2 className="text-xl font-bold text-center text-white">
@@ -64,7 +64,7 @@ const page = () => {
                 </div>
               </div>
 
-              <div className="mt-4 flex">
+              <div className="mt-4 flex  p-4 shadow-md rounded-lg">
                 <div className="w-[30%] flex justify-center items-center">
                   <div className="flex items-center justify-center rounded-full w-[2rem] h-[2rem] bg-purple-700 hover:bg-blue-950 shadow-md">
                     <h2 className="text-xl font-bold text-center text-white">
@@ -80,7 +80,7 @@ const page = () => {
                 </div>
               </div>
 
-              <div className="mt-4 flex">
+              <div className="mt-4 flex  p-4 shadow-md rounded-lg">
                 <div className="w-[30%] flex justify-center items-center">
                   <div className="flex items-center justify-center rounded-full w-[2rem] h-[2rem] bg-purple-700 hover:bg-blue-950 shadow-md">
                     <h2 className="text-xl font-bold text-center text-white">

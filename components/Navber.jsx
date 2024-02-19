@@ -6,7 +6,7 @@ import { MenuIcon, Bell } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const navItem = [
-  { name: "Home", link: "/home" },
+  { name: "Home", link: "/" },
   { name: "About", link: "/about" },
   { name: "Contact", link: "/contact" },
 ];

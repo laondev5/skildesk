@@ -24,12 +24,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Industries, JobType, Countries } from "@/lib/parameters";
-import { createJobs } from "@/app/(auth)/action/createJobs";
+import { createJobs } from "@/app/action/createJobs";
 import { useForm, Controller } from "react-hook-form";
 import { InfinitySpin } from "react-loader-spinner";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from "sonner";
-import { updateJob } from "@/app/(auth)/action/updateJob";
+import { updateJob } from "@/app/action/updateJob";
 import Tiptap from "../Tiptap";
 const EditJobs = ({ jobData }) => {
   //console.log(jobData);

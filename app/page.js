@@ -211,10 +211,10 @@ export default async function Home() {
                 </div>
                 <div className="flex justify-center items-center w-fill my-3">
                   <p className="text-md w-[80%] text-center">
-                    Streamline your project delivery with Skildesk's outsourcing
+                    Streamline your project delivery with Skildesks outsourcing
                     and contract services. Whether you need short-term
-                    engagements or a team assembled for a specific project,
-                    we've got you covered.
+                    engagements or a team assembled for a specific project, weve
+                    got you covered.
                   </p>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default async function Home() {
                 </div>
                 <div className="flex justify-center items-center w-fill my-3">
                   <p className="text-md w-[80%] text-center">
-                    Discover top-tier full-time talent with Skildesk's expert
+                    Discover top-tier full-time talent with Skildesks expert
                     team assembly services. Whether you require short-term
                     engagements or a dedicated team to deliver a project, we
                     have the solution for you.

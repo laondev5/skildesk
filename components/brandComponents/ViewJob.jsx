@@ -54,7 +54,7 @@ const ViewJob = ({ jobData, userData }) => {
       <div className="w-full flex flex-col lg:flex-row items-center">
         <div className="w-[90%] lg:w-[20%] flex justify-center items-center mx-auto  border bg-white rounded-md h-screen relative">
           <div className="absolute top-0 right-0">
-            {userData.adminVerified === false ? (
+            {userData?.adminVerified === false ? (
               <div className="bg-red-400 text-white py-1 px-2">
                 Not Verified
               </div>
@@ -75,7 +75,7 @@ const ViewJob = ({ jobData, userData }) => {
             <div className="w-[90%]  mx-auto flex flex-col ">
               <div className="my-2">
                 <p className=" text-sm text-gray-600 ">Brand name :</p>
-                <Link to={jobData?.webUrl}>
+                <Link href={jobData?.webUrl}>
                   <h1 className="font-bold text-2xl text-blue-950">
                     {jobData?.brandName}
                   </h1>

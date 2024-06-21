@@ -16,7 +16,7 @@ const page = async () => {
   const res = await getUserData(session.user.id);
   //console.log(res?.status);
   const jobs = await getJobs(session.user.id);
-  //console.log(jobs);
+  console.log(jobs);
   return (
     <div className="p-2 ">
       <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-3 gap-4">
@@ -84,7 +84,7 @@ const page = async () => {
         <div className="hidden"></div>
       )}
       <div className="w-full bg-white rounded-sm">
-        {jobs.length === 0 ? <Empty /> : <BrandDataTable jobs={jobs} />}
+        {jobs?.length === 0 ? <Empty /> : <BrandDataTable jobs={jobs} />}
       </div>
     </div>
   );

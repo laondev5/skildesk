@@ -47,6 +47,7 @@ model User {
   businessReg              String?
   idCard                   String?
   taxReg                   String?
+  adminVerified            Boolean   @default(false)
   jobs                     Jobs[]
   // userId                   String?          @db.ObjectId
   // vendorProfile            VendorProfile?
@@ -110,6 +111,7 @@ model Jobs {
   status      String
   city        String
   coverImage  String
+  webUrl      String
   userId      String @db.ObjectId
   user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   const body = await request.json();
   const { userId, data } = body;
-  console.log(userId, data);
+  //console.log(userId, data);
   try {
     const job = await prisma.Jobs.create({
       data: {
@@ -20,6 +20,7 @@ export async function POST(request) {
         industry: data.industry,
         coverImage: data.file,
         userId: userId,
+        webUrl: data.webUrl,
         status: data.status,
       },
     });

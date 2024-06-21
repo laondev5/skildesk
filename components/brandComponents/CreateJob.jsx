@@ -130,7 +130,7 @@ const CreateJob = () => {
       <Toaster position="bottom-right" expand={false} richColors />
       {isLoading && (
         <div className="absolute top-0 left-0 w-[100%] h-screen bg-gray-500/5">
-          <div className="w-full h-full flex justify-center items-center">
+          <div className="w-[100%] h-[100%] flex justify-center items-center">
             <div className="flex justify-center items-center w-[10rem] h-[10rem]  rounded-md ">
               <InfinitySpin
                 height="100"
@@ -196,6 +196,33 @@ const CreateJob = () => {
                   type="text"
                   id="brandName"
                   name="brandName"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  placeholder="Brand name"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            )}
+          />
+        </div>
+        <div className=" my-2">
+          <Controller
+            name="webUrl"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, onBlur, value } }) => (
+              <div>
+                <Label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Brand web url
+                </Label>
+                <Input
+                  type="text"
+                  id="webUrl"
+                  name="webUrl"
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}

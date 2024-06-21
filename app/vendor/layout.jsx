@@ -12,7 +12,7 @@ export default function AboutLayout({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <html lang="en">
-      <body className="w-full">
+      <body className="w-full bg-gray-50">
         <BrandNavbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
         <div className="flex relative">
           {/* desktop */}

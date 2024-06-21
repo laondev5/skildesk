@@ -6,6 +6,7 @@ import { updateJobStatus } from "@/app/action/updateJobStatus";
 import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const status = {
   approved: "Approved",
@@ -13,8 +14,10 @@ const status = {
   pending: "Pending",
 };
 //import getSymbolFromCurrency from "currency-symbol-map";
-const ViewJob = ({ jobData }) => {
-  console.log(jobData?.id);
+const ViewJob = ({ jobData, userData }) => {
+  console.log(jobData);
+  console.log(userData);
+  const firstTwoChar = userData?.email?.substring(0, 2);
   const [amount, setAmount] = useState("");
   const { data: session } = useSession();
   const Router = useRouter();
@@ -49,9 +52,18 @@ const ViewJob = ({ jobData }) => {
         <div className="hidden"></div>
       )}
       <div className="w-full flex flex-col lg:flex-row items-center">
-        <div className="w-[90%] lg:w-[20%] flex justify-center items-center mx-auto  border bg-white rounded-md h-screen">
+        <div className="w-[90%] lg:w-[20%] flex justify-center items-center mx-auto  border bg-white rounded-md h-screen relative">
+          <div className="absolute top-0 right-0">
+            {userData.adminVerified === false ? (
+              <div className="bg-red-400 text-white py-1 px-2">
+                Not Verified
+              </div>
+            ) : (
+              <div className="bg-green-400 text-white py-1 px-2">Verified</div>
+            )}
+          </div>
           <div className="w-[95%] mx-auto flex flex-col">
-            <div className="w-[8rem] h-[8rem] rounded-full border mb-4 ">
+            <div className="w-[8rem] h-[8rem] rounded-full border mb-4 relative">
               <Image
                 src={jobData?.coverImage}
                 alt="job logo"
@@ -63,9 +75,11 @@ const ViewJob = ({ jobData }) => {
             <div className="w-[90%]  mx-auto flex flex-col ">
               <div className="my-2">
                 <p className=" text-sm text-gray-600 ">Brand name :</p>
-                <h1 className="font-bold text-2xl text-blue-950">
-                  {jobData?.brandName}
-                </h1>
+                <Link to={jobData?.webUrl}>
+                  <h1 className="font-bold text-2xl text-blue-950">
+                    {jobData?.brandName}
+                  </h1>
+                </Link>
               </div>
               <div className="my-2">
                 <p className=" text-sm text-gray-600 ">Job title :</p>

@@ -7,14 +7,14 @@ const page = () => {
   return (
     <div
       className="w-full h-screen flex justify-center items-center"
-      //   style={{
-      //     backgroundImage: "url('/bg-mid.svg')",
-      //     backgroundSize: "cover",
-      //     backgroundRepeat: "no-repeat",
-      //   }}
+      style={{
+        backgroundImage: "url('/bg-mid.svg')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      <div className="w-[70%]">
-        <div className="w-[80%]">
+      <div className="w-[70%] bg-white/90 shadow-sm rounded-md py-4 flex justify-center flex-col items-center">
+        <div className="w-[80%] flex justify-center items-center">
           <Image
             src="/mid.svg"
             alt="mid"

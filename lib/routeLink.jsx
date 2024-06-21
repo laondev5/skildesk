@@ -12,6 +12,6 @@ export const RouteLink = [
 
 export const AdminRouteLink = [
   { label: "Dashboard", path: "/admin", icon: <LayoutDashboard /> },
-  { label: "View user", path: "/createTask", icon: <FilePlus /> },
-  { label: "Jobs", path: "/jobs", icon: <Briefcase /> },
+  { label: "View user", path: "/admin_register", icon: <FilePlus /> },
+  { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
 ];

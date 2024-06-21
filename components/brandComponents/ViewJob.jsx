@@ -32,7 +32,7 @@ const ViewJob = ({ jobData }) => {
   return (
     <div className="">
       {session?.user?.role === "ADMIN" ? (
-        <div className="w-full bg-green-100 flex justify-end items-center">
+        <div className="w-full  flex justify-end items-center">
           <div className="w-full lg:w-[20%] py-4 mb-4 px-2 flex justify-between items-center">
             <Button onClick={handleReject} className="bg-red-700 text-red-50">
               Reject

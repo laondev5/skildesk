@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+  VENDOR
+}
+
+model User {
+  id                       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name                     String?
+  email                    String?   @unique
+  emailVerified            Boolean   @default(false)
+  emailVerifiedDate        DateTime?
+  verificationRequestCount Int?
+  verificationToken        String?
+  password                 String?
+  role                     Role      @default(USER)
+  status                   String?
+  completed                String?
+  description              String?
+  industry                 String?
+  brandName                String?
+  country                  String?
+  city                     String?
+  state                    String?
+  zip                      String?
+  phoneNumber              String?
+  website                  String?
+  image                    String?
+  address                  String?
+  proveOfAddre             String?
+  businessReg              String?
+  idCard                   String?
+  taxReg                   String?
+  jobs                     Jobs[]
+  // userId                   String?          @db.ObjectId
+  // vendorProfile            VendorProfile?
+  // user                     UserProfile?
+  // role                     Role             @default(USER)
+  // jobs                     Jobs[]
+  // VendorDocuments          VendorDocuments?
+  // vendorDocumentsId        String?          @db.ObjectId
+  // VendorDocuments          VendorDocuments?
+  // UserProfile              UserProfile?
+}
+
+// model VendorProfile {
+//   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+//   description String?
+//   industry    String?
+//   brandName   String?
+//   country     String?
+//   city        String?
+//   state       String?
+//   zip         String?
+//   phoneNumber Int?
+//   website     String?
+//   completed   String?
+//   image       String?
+//   address     String?
+//   userId      String  @unique @db.ObjectId
+//   user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model VendorDocuments {
+//   id           String  @id @default(auto()) @map("_id") @db.ObjectId
+//   proveOfAddre String?
+//   businessReg  String?
+//   idCard       String?
+//   taxReg       String?
+//   userId       String  @unique @db.ObjectId
+//   user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model UserProfile {
+//   id                String  @id @default(auto()) @map("_id") @db.ObjectId
+//   location          String?
+//   phoneNumber       Int
+//   verifyPhoneNumber Boolean @default(false)
+//   otp               Int?
+//   image             String?
+//   userId            String  @unique @db.ObjectId
+//   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+model Jobs {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  brandName   String
+  title       String
+  Description String
+  industry    String
+  jobType     String
+  country     String
+  pay         Int
+  status      String
+  city        String
+  coverImage  String
+  userId      String @db.ObjectId
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

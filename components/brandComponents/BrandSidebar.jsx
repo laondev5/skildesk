@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { RouteLink } from "@/lib/routeLink";
 import NavItem from "../NavItem";
+import { BrandSupLink } from "@/lib/routeLink";
 
 const BrandSideBar = () => {
   return (
@@ -16,6 +17,9 @@ const BrandSideBar = () => {
             icon={routUrl.icon}
           />
         ))}
+      </div>
+      <div className="absolute bottom-0 left-4">
+        <div className="flex flex-col gap-y-2"></div>
       </div>
     </div>
   );

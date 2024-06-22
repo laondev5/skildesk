@@ -1,4 +1,11 @@
-import { LayoutDashboard, FilePlus, Briefcase } from "lucide-react";
+import {
+  LayoutDashboard,
+  FilePlus,
+  Briefcase,
+  LogOut,
+  SquareUser,
+} from "lucide-react";
+//import { signOut } from "next-auth/react";
 // interface BrandNavInterface {
 //   label: string;
 //   path: string;
@@ -15,3 +22,13 @@ export const AdminRouteLink = [
   { label: "View user", path: "/admin/users", icon: <FilePlus /> },
   { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
 ];
+
+// export const BrandSupLink = [
+//   { label: "Profile", path: "/vendor/account", icon: <SquareUser /> },
+//   { label: "Logout", path: signOut, icon: <LogOut /> },
+// ];
+
+// export const AdminSupLink = [
+//   { label: "Profile", path: "/admin/view_user", icon: <SquareUser /> },
+//   { label: "Logout", path: signOut, icon: <LogOut /> },
+// ];

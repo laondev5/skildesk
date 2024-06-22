@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Toaster, toast } from "sonner";
 
 const status = {
   approved: "Approved",
@@ -15,25 +16,62 @@ const status = {
 };
 //import getSymbolFromCurrency from "currency-symbol-map";
 const ViewJob = ({ jobData, userData }) => {
-  console.log(jobData);
-  console.log(userData);
+  //console.log(jobData);
+  //console.log(userData);
   const firstTwoChar = userData?.email?.substring(0, 2);
   const [amount, setAmount] = useState("");
   const { data: session } = useSession();
   const Router = useRouter();
 
   const handleApprove = async () => {
-    await updateJobStatus(jobData?.id, status.approved);
-    Router.push("/admin");
+    const res = await updateJobStatus(jobData?.id, status.approved);
+    if (res) {
+      toast.success({
+        title: "Job Approved",
+        description: "Job has been approved",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      Router.push("/admin");
+    } else {
+      toast.error({
+        title: "Failed to Approve job",
+        description: "Your attempt to approve this job failed please try again",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      Router.push("/admin");
+    }
   };
   const handleReject = async () => {
-    await updateJobStatus(jobData?.id, status.rejected);
-    Router.push("/admin");
+    const res = await updateJobStatus(jobData?.id, status.rejected);
+    if (res) {
+      toast.success({
+        title: "Job Rejected",
+        description: "Job has been rejected",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      Router.push("/admin");
+    } else {
+      toast.error({
+        title: "Failed to Reject job",
+        description: "Your attempt to reject this job failed please try again",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      Router.push("/admin");
+    }
   };
   //console.log(jobData);
   //const usdSymbol = getSymbolFromCurrency("USD");
   return (
     <div className="">
+      <Toaster position="bottom-right" expand={false} richColors />
       {session?.user?.role === "ADMIN" ? (
         <div className="w-full  flex justify-end items-center">
           <div className="w-full lg:w-[20%] py-4 mb-4 px-2 flex justify-between items-center">

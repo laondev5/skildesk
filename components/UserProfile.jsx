@@ -5,9 +5,10 @@ import React from "react";
 import { Button } from "./ui/button";
 import { updateUserStatus } from "@/app/action/updateUserStatus";
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from "sonner";
 
 const verificationStatus = {
-  verifird: true,
+  verified: true,
 };
 const UserProfile = ({ userData, session }) => {
   //console.log(userData);
@@ -15,8 +16,18 @@ const UserProfile = ({ userData, session }) => {
   //console.log(session?.user);
   const Router = useRouter();
   const handleApprove = async () => {
-    await updateUserStatus(userData?.id, verificationStatus.verified);
-    Router.push("/admin");
+    const res = await updateUserStatus(
+      userData?.id,
+      verificationStatus.verified
+    );
+    if (res) {
+      toast.success("User Verified successfully");
+      Router.push("/admin");
+    } else {
+      toast.error("Failed to verify user");
+    }
+    // toast.success("User Verified successfully");
+    // Router.push("/admin");
   };
   // const handleReject = async () => {
   //   await updateJobStatus(jobData?.id, status.rejected);
@@ -24,6 +35,7 @@ const UserProfile = ({ userData, session }) => {
   // };
   return (
     <div className="w-full relative">
+      <Toaster position="bottom-right" expand={false} richColors />
       {session?.user?.role === "ADMIN" ? (
         <div className="w-full  flex justify-end items-center">
           <div className="w-full lg:w-[20%] py-4 mb-4 px-2 flex justify-end items-center">

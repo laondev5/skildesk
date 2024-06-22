@@ -53,15 +53,21 @@ const ViewJob = ({ jobData, userData }) => {
       )}
       <div className="w-full flex flex-col lg:flex-row items-center">
         <div className="w-[90%] lg:w-[20%] flex justify-center items-center mx-auto  border bg-white rounded-md h-screen relative">
-          <div className="absolute top-0 right-0">
-            {userData?.adminVerified === false ? (
-              <div className="bg-red-400 text-white py-1 px-2">
-                Not Verified
-              </div>
-            ) : (
-              <div className="bg-green-400 text-white py-1 px-2">Verified</div>
-            )}
-          </div>
+          {userData?.role === "VENDOR" ? (
+            <div className="absolute top-0 right-0">
+              {userData?.adminVerified === false ? (
+                <div className="bg-red-400 text-white py-1 px-2">
+                  Not Verified
+                </div>
+              ) : (
+                <div className="bg-green-400 text-white py-1 px-2">
+                  Verified
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-green-400 text-white py-1 px-2">Verified</div>
+          )}
           <div className="w-[95%] mx-auto flex flex-col">
             <div className="w-[8rem] h-[8rem] rounded-full border mb-4 relative">
               <Image

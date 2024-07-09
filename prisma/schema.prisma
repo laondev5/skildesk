@@ -49,6 +49,7 @@ model User {
   taxReg                   String?
   adminVerified            Boolean   @default(false)
   jobs                     Jobs[]
+  blogs                    Blogs[]
   // userId                   String?          @db.ObjectId
   // vendorProfile            VendorProfile?
   // user                     UserProfile?
@@ -114,4 +115,16 @@ model Jobs {
   webUrl      String
   userId      String @db.ObjectId
   user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Blogs {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String?
+  description String?
+  coverImage  String?
+  author      String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  userId      String    @db.ObjectId
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

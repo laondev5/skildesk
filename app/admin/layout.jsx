@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // import BrandNavbar from "../../../components/brandComponents/BrandNavbar";
 import AdminNavbar from "@/components/adminComponent/AdminNavbar";
 import AdminSideBar from "@/components/adminComponent/AdminSidebar";
+import { ChatBox } from "@/components/ChatBox";
 
 // interface MyComponentState {
 //   mobileOpen: boolean;
@@ -31,7 +32,12 @@ export default function AboutLayout({ children }) {
           </div>
           <div className="w-[100%] flex bg-gray-50  ">
             <div className="w-[20%] hidden lg:block"></div>
-            <div className="w-[100%] lg:w-[80%] py-4">{children}</div>
+            <div className="w-[100%] lg:w-[80%] py-4 relative">
+              <div className="fixed bottom-6 right-5 rounded-full w-[4rem] bg-red-800 z-50 h-[4rem]">
+                <ChatBox />
+              </div>
+              {children}
+            </div>
           </div>
         </div>
       </body>

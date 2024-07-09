@@ -172,7 +172,7 @@ const ViewJob = ({ jobData, userData }) => {
             </div> */}
 
             <div
-              className="w-[90%] ProseMirror whitespace-pre-line `"
+              className="w-[90%] ProseMirror whitespace-pre-line "
               dangerouslySetInnerHTML={{ __html: jobData?.Description }}
             />
           </div>

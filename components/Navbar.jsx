@@ -13,7 +13,9 @@ import { Circles } from "react-loader-spinner";
 const navItem = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
+  { name: "Available Jobs", link: "/available_jobs" },
   { name: "Contact", link: "/contact" },
+  { name: "News", link: "/blog" },
 ];
 const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -69,8 +71,12 @@ const Navbar = () => {
                 <Button asChild variant="ghost">
                   <Link href="/login">Login</Link>
                 </Button>
-                <Button asChild variant="main">
-                  <Link href="/mid">Register</Link>
+
+                <Button variant="ghost">
+                  <Link href="/register-vendor">Sign up as Recruiter</Link>
+                </Button>
+                <Button variant="ghost">
+                  <Link href="/register">Get hired</Link>
                 </Button>
               </div>
             )}

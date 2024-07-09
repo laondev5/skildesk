@@ -44,6 +44,9 @@ const AdminNavbar = ({ mobileOpen, setMobileOpen }) => {
             </div>
           </div>
           <div className="flex items-center space-x-6">
+            <Link href="/admin/viewBlog">
+              <Button variant="ghost">Blog</Button>
+            </Link>
             {/* create job */}
             <Button asChild variant="ghost" size="icon">
               <Link href="/vendor/createTask">

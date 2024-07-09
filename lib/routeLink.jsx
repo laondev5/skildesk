@@ -4,6 +4,7 @@ import {
   Briefcase,
   LogOut,
   SquareUser,
+  NotebookPen,
 } from "lucide-react";
 //import { signOut } from "next-auth/react";
 // interface BrandNavInterface {
@@ -21,6 +22,7 @@ export const AdminRouteLink = [
   { label: "Dashboard", path: "/admin", icon: <LayoutDashboard /> },
   { label: "View user", path: "/admin/users", icon: <FilePlus /> },
   { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
+  { label: "Creat blog", path: "/admin/blog", icon: <NotebookPen /> },
 ];
 
 // export const BrandSupLink = [

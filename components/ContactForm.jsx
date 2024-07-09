@@ -6,7 +6,7 @@ const ContactForm = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
         <h2 className="text-2xl font-bold text-center mb-6">Get In Touch</h2>
         <p className="text-center mb-8">
-          We'll create high-quality linkable content and build at least 40
+          We &apos ll create high-quality linkable content and build at least 40
           high-authority links to each asset, paving the way for you to grow
           your rankings, improve brand.
         </p>

@@ -1,8 +1,15 @@
-import React from "react";
-//import withAuthRoleRedirect from "@/lib/withAuthRoleRedirect";
 
-const page = () => {
-  return <div>user</div>;
+import { getAllJobs } from '../action/getAllJobs';
+import Home from '@/components/userComponent/Home';
+
+const page = async () => {
+  const jobs = await getAllJobs();
+  console.log(jobs)
+  return (
+    <div >
+     <Home jobs={jobs}/>
+    </div>
+  );
 };
 
-export default page;
+export default page

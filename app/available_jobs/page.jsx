@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import AvailableJobs from "@/components/AvailableJobs";
 import Navbar from "@/components/Navbar";
+import {Home} from "@/components/userComponent/Home"
 const page = async () => {
   const jobs = await getAllJobs();
   console.log(jobs);
@@ -11,7 +12,7 @@ const page = async () => {
     <div>
       <Navbar />
       <Container>
-        <AvailableJobs jobs={jobs} />
+        <Home jobs={jobs} />
       </Container>
     </div>
   );

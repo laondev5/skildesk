@@ -5,6 +5,9 @@ import {
   LogOut,
   SquareUser,
   NotebookPen,
+  Send,
+  Target,
+  MessageCircleWarning,
 } from "lucide-react";
 //import { signOut } from "next-auth/react";
 // interface BrandNavInterface {
@@ -23,6 +26,15 @@ export const AdminRouteLink = [
   { label: "View user", path: "/admin/users", icon: <FilePlus /> },
   { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
   { label: "Creat blog", path: "/admin/blog", icon: <NotebookPen /> },
+];
+
+export const UserRouteLink = [
+  { label: "Dashboard", path: "/user", icon: <LayoutDashboard /> },
+  { label: " Find Work", path: "/user/work", icon: <FilePlus /> },
+  { label: "My Jobs", path: "/user/jobs", icon: <Briefcase /> },
+  { label: "My Activity", path: "/user/activity", icon: <Target /> },
+  { label: " Messages", path: "/user/message", icon: <Send /> },
+  { label: "Reports", path: "/user/report", icon: <MessageCircleWarning /> },
 ];
 
 // export const BrandSupLink = [

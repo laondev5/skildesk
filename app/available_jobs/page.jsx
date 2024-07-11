@@ -4,10 +4,10 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import AvailableJobs from "@/components/AvailableJobs";
 import Navbar from "@/components/Navbar";
-import {Home} from "@/components/userComponent/Home"
+import Home from "@/components/userComponent/Home";
 const page = async () => {
   const jobs = await getAllJobs();
-  console.log(jobs);
+  //console.log(jobs);
   return (
     <div>
       <Navbar />

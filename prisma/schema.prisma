@@ -21,15 +21,15 @@ enum Role {
 }
 
 model User {
-  id                       String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                       String      @id @default(auto()) @map("_id") @db.ObjectId
   name                     String?
-  email                    String?   @unique
-  emailVerified            Boolean   @default(false)
+  email                    String?     @unique
+  emailVerified            Boolean     @default(false)
   emailVerifiedDate        DateTime?
   verificationRequestCount Int?
   verificationToken        String?
   password                 String?
-  role                     Role      @default(USER)
+  role                     Role        @default(USER)
   status                   String?
   completed                String?
   description              String?
@@ -47,9 +47,10 @@ model User {
   businessReg              String?
   idCard                   String?
   taxReg                   String?
-  adminVerified            Boolean   @default(false)
+  adminVerified            Boolean     @default(false)
   jobs                     Jobs[]
   blogs                    Blogs[]
+  apply                    Applicant[]
   // userId                   String?          @db.ObjectId
   // vendorProfile            VendorProfile?
   // user                     UserProfile?
@@ -101,7 +102,7 @@ model User {
 // }
 
 model Jobs {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   brandName   String
   title       String
   Description String
@@ -110,11 +111,12 @@ model Jobs {
   country     String
   pay         Int
   status      String
+  aplly       Applicant[]
   city        String
   coverImage  String
   webUrl      String
-  userId      String @db.ObjectId
-  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String      @db.ObjectId
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Blogs {
@@ -127,4 +129,15 @@ model Blogs {
   updatedAt   DateTime? @updatedAt
   userId      String    @db.ObjectId
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Applicant {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  resume    String?
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  userId    String    @db.ObjectId
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobId     String    @db.ObjectId
+  job       Jobs      @relation(fields: [jobId], references: [id], onDelete: Cascade)
 }

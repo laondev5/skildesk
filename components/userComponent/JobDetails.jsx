@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const JobDetail = ({jobs, jobId}) => {
     console.log(jobId, jobs)
 
-    const [job, setJob] = useState(null);
+    const [job, setJob] = useState({});
 
   useEffect(() => {
     // Find job by id

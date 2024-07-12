@@ -26,11 +26,13 @@ export default async function Home() {
             <div className="flex  z-[100]">
               <div className="lg:flex-1  pt-[8rem] ">
                 <h1 className="text-5xl text-center lg:text-left font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-                  Connecting Top Qualified Talent with Leading Companies
+                  Your Gateway to New Career Opportunities
                 </h1>
                 <p className="mt-4 text-center text-lg text-white lg:text-blue-950 lg:text-left">
-                  We serve as the catalyst for connecting top-tier talent with
-                  industry-leading companies
+                  Ready for your next career move? Skildesk connects job seekers
+                  with top companies across various industries. Find the right
+                  job that matches your skills and aspirations easily on our
+                  platform.
                 </p>
                 <div className="flex space-x-2 items-center justify-center lg:justify-start mt-4 mb-20 lg:mb-8">
                   {session?.user ? (
@@ -56,7 +58,7 @@ export default async function Home() {
               </div>
               <div className="hidden lg:flex lg:flex-1 ">
                 <Image
-                  src="/hero1.svg"
+                  src="/Team.svg"
                   alt="hero-image"
                   height={100}
                   width={100}
@@ -76,10 +78,12 @@ export default async function Home() {
         >
           <div className=" pt-[8rem] lg:pl-16 xl:pl-[10rem]">
             <h1 className="text-5xl md:text-[4rem] text-center lg:text-left font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-              Find the right <br /> Person for the job
+              Your Gateway to New Career Opportunities
             </h1>
-            <p className="mt-4 text-center text-lg md:text-2xl text-white lg:text-left">
-              Get started by editing <code>pages/index.js</code>
+            <p className="mt-4 text-center text-lg text-white lg:text-blue-950 lg:text-left">
+              Ready for your next career move? Skildesk connects job seekers
+              with top companies across various industries. Find the right job
+              that matches your skills and aspirations easily on our platform.
             </p>
             <div className="flex space-x-2 items-center justify-center lg:justify-start mt-4 mb-20 lg:mb-8">
               {session?.user ? (
@@ -122,7 +126,8 @@ export default async function Home() {
             </div>
             <div className="flex-1 mt-10 px-4 lg:px-0">
               <h2 className="text-sem  font-bold text-center lg:text-left bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-                Find the right Person for the job
+                Join Skildesk today and start your journey towards a rewarding
+                career
               </h2>
               <h2 className="text-4xl font-bold mt-4 text-center lg:text-left">
                 Let us Save you Time <br />

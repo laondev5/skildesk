@@ -76,7 +76,7 @@ const Navbar = () => {
                   <Link href="/register-vendor">Sign up as Recruiter</Link>
                 </Button>
                 <Button variant="ghost">
-                  <Link href="/register">Get hired</Link>
+                  <Link href="/register">Sign up as a job seeker</Link>
                 </Button>
               </div>
             )}

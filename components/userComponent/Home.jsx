@@ -10,7 +10,7 @@ const Home = ({ jobs }) => {
   // console.log(jobs);
   const [jobId, setJobId] = useState("");
   return (
-    <div className="flex w-full">
+    <div className="flex w-full bg-gray-50">
       <Head>
         <title>HuntJobs</title>
       </Head>

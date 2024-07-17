@@ -12,10 +12,10 @@ import { Circles } from "react-loader-spinner";
 
 const navItem = [
   { name: "Home", link: "/" },
-  { name: "About", link: "/about" },
   { name: "Available Jobs", link: "/available_jobs" },
-  { name: "Contact", link: "/contact" },
   { name: "News", link: "/blog" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
 ];
 const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -41,19 +41,21 @@ const Navbar = () => {
           </div>
           {/* desktop navbar */}
           <div className="hidden lg:flex space-x-4">
-            {navItem.map((route, i) => (
-              <Button key={i} asChild variant="ghost">
-                <Link
-                  key={i}
-                  href={route.link}
-                  className="text-sm transition-colors font-medium"
-                >
-                  {route.name}
-                </Link>
-              </Button>
-            ))}
+            <div className="flex space-x-4 mr-[2rem]">
+              {navItem.map((route, i) => (
+                <Button key={i} asChild variant="ghost">
+                  <Link
+                    key={i}
+                    href={route.link}
+                    className="text-sm transition-colors font-medium"
+                  >
+                    {route.name}
+                  </Link>
+                </Button>
+              ))}
+            </div>
             {session?.user ? (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 ml-[8rem]">
                 <Button asChild variant="ghost">
                   {session?.user?.role === "VENDOR" ? (
                     <Link href="/vendor">Continue to dashboard</Link>
@@ -68,16 +70,16 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <Button asChild variant="ghost">
+                <Button asChild variant="outline">
                   <Link href="/login">Login</Link>
                 </Button>
 
-                <Button variant="ghost">
-                  <Link href="/register-vendor">Sign up as Recruiter</Link>
+                <Button variant="default">
+                  <Link href="/mid">Sign up</Link>
                 </Button>
-                <Button variant="ghost">
+                {/* <Button variant="ghost">
                   <Link href="/register">Sign up as a job seeker</Link>
-                </Button>
+                </Button> */}
               </div>
             )}
           </div>
@@ -101,11 +103,11 @@ const Navbar = () => {
                     </Button>
                   ))}
                   <div className="absolute bottom-4 left-0 items-center w-full">
-                    <Button asChild variant="ghost" className="w-full my-4">
+                    <Button asChild variant="outline" className="w-full my-4">
                       <Link href="/login">Login</Link>
                     </Button>
-                    <Button asChild variant="main" className="w-full mb-3">
-                      <Link href="/mid">Register</Link>
+                    <Button asChild variant="default" className="w-full mb-3">
+                      <Link href="/mid">Sign up</Link>
                     </Button>
                   </div>
                 </nav>

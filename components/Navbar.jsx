@@ -74,7 +74,7 @@ const Navbar = () => {
                   <Link href="/login">Login</Link>
                 </Button>
 
-                <Button variant="default">
+                <Button className="bg-blue-700">
                   <Link href="/mid">Sign up</Link>
                 </Button>
                 {/* <Button variant="ghost">

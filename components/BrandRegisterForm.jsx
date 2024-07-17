@@ -153,11 +153,26 @@ const BrandRegisterForm = ({ role }) => {
             <div className="hidden"></div>
           ) : (
             <div className=" pt-4 flex justify-between items-center z-50">
-              <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
                 <Checkbox
                   id="terms"
                   type="checkbox"
                   onChange={() => setIsChecked(true)}
+                />
+                <label
+                  htmlFor="terms"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Accept terms and conditions{" "}
+                  <span className="text-blue-700 text-lg underline">
+                    <Link href="/terms">Read</Link>
+                  </span>
+                </label>
+              </div> */}
+              <div className="flex gap-3 items-center">
+                <input
+                  type="checkbox"
+                  onChange={() => setIsChecked(!isChecked)}
                 />
                 <label
                   htmlFor="terms"

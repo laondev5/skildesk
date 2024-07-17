@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import NewAbout from "@/components/NewAbout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +12,7 @@ const AboutUs = () => {
     <>
       <Navbar />
 
-      <main className="">
+      {/* <main className="">
         <section
           className="text-center mb-16 bg-cover py-16 bg-no-repeat relative"
           style={{
@@ -84,45 +85,7 @@ const AboutUs = () => {
             </div>
           </Container>
         </section>
-        {/* <section className="mb-16 text-center">
-          <Container>
-            <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <div className="flex justify-center gap-8">
-              <div className="text-center">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>DJ</AvatarFallback>
-                </Avatar>
-                <h3 className="font-bold mt-4">Devin Johnson</h3>
-                <p className="text-muted-foreground">Chief Executive Officer</p>
-              </div>
-              <div className="text-center">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>CH</AvatarFallback>
-                </Avatar>
-                <h3 className="font-bold mt-4">Cody Harvey</h3>
-                <p className="text-muted-foreground">
-                  President / Chief Strategy Officer
-                </p>
-              </div>
-              <div className="text-center">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>ED</AvatarFallback>
-                </Avatar>
-                <h3 className="font-bold mt-4">Elliot Drake</h3>
-                <p className="text-muted-foreground">Chief Marketing Officer</p>
-              </div>
-            </div>
-          </Container>
-        </section> */}
+       
         <section className="mb-16">
           <Container>
             <div className="flex  flex-col lg:flex-row gap-8 items-center px-8 lg:px-0">
@@ -176,7 +139,8 @@ const AboutUs = () => {
             </div>
           </Container>
         </section>
-      </main>
+      </main> */}
+      <NewAbout />
 
       <Footer />
     </>

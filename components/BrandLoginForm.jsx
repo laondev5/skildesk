@@ -69,7 +69,7 @@ const BrandLoginForm = () => {
   }, [session?.user?.role]);
 
   return (
-    <div className="w-[80%]">
+    <div className="w-[80%] shadow-md rounded-lg h-[30rem] p-6">
       <Toaster position="bottom-right" expand={false} richColors />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">

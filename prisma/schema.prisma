@@ -51,6 +51,8 @@ model User {
   jobs                     Jobs[]
   blogs                    Blogs[]
   apply                    Applicant[]
+  comment                  Comment[]
+  terms                    Terms[]
   // userId                   String?          @db.ObjectId
   // vendorProfile            VendorProfile?
   // user                     UserProfile?
@@ -129,6 +131,18 @@ model Blogs {
   updatedAt   DateTime? @updatedAt
   userId      String    @db.ObjectId
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comment     Comment[]
+}
+
+model Comment {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  content   String?
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  userId    String    @db.ObjectId
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  blogId    String    @db.ObjectId
+  blog      Blogs     @relation(fields: [blogId], references: [id], onDelete: Cascade)
 }
 
 model Applicant {
@@ -140,4 +154,13 @@ model Applicant {
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   jobId     String    @db.ObjectId
   job       Jobs      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+model Terms {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  userId    String    @db.ObjectId
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

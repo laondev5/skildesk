@@ -33,7 +33,7 @@ const JobDetail = ({ jobs, jobId }) => {
 
   //console.log(job);
   return (
-    <div className="flex flex-col w-[40%] p-6 bg-white">
+    <div className="hidden lg:flex flex-col w-[40%] p-6 bg-white">
       <div className="w=[5rem] h-[5rem] rounded-md">
         {job ? (
           <Image

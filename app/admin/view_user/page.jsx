@@ -6,7 +6,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 const page = async ({ searchParams }) => {
   const userData = await getUserData(searchParams.itemId);
   const session = await getServerSession(authOptions);
-  console.log(userData);
+  //console.log(userData);
   return (
     <div>
       <UserProfile userData={userData} session={session} />

@@ -25,10 +25,10 @@ const page = () => {
         </div>
         <div className="flex space-x-6 items-center py-10">
           <Button variant="outline">
-            <Link href="/register-vendor">Sign up as Brand</Link>
+            <Link href="/register-vendor">Sign up as a recruiter</Link>
           </Button>
           <Button variant="main">
-            <Link href="/register">Sign up as User</Link>
+            <Link href="/register">Sign up as a job seeker</Link>
           </Button>
         </div>
       </div>

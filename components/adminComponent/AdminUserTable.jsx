@@ -45,14 +45,16 @@ import {
 } from "@/components/ui/table";
 import { deleteJob } from "@/app/action/deleteJob";
 import { Toaster, toast } from "sonner";
+import { deleteUser } from "@/app/action/deleteUser";
 //import getSymbolFromCurrency from "currency-symbol-map";
 import CurrencySymbol from "@/lib/CurrencySymbol";
 const AdminUserTable = ({ users }) => {
-  console.log(users);
+  //console.log(users);
   const [isDelete, setIsDelete] = useState(false);
   const [deleteData, setDeleteData] = useState("");
   const { data: session } = useSession();
   const router = useRouter();
+
   const handleIsDelete = (id) => {
     setDeleteData(id);
     setIsDelete(true);
@@ -61,14 +63,14 @@ const AdminUserTable = ({ users }) => {
   //const usdSymbol = getSymbolFromCurrency("USD");
   const handleDelete = async (id) => {
     try {
-      const res = await deleteJob(id);
+      const res = await deleteUser(id);
 
       if (res) {
         setIsDelete(false);
-        toast.success("Job deleted successful");
+        toast.success("user deleted successful");
       }
     } catch (error) {
-      toast.error("Failed to delete job");
+      toast.error("Failed to delete user");
     }
   };
 
@@ -146,6 +148,10 @@ const AdminUserTable = ({ users }) => {
                         <div className="py-1 px-3 rounded-sm text-green-600  font-semibold">
                           ADMIN
                         </div>
+                      ) : invoice.role === "USER" ? (
+                        <div className="py-1 px-3 rounded-sm text-green-600  font-semibold">
+                          Job Applicant
+                        </div>
                       ) : (
                         <div className="py-1 px-3 rounded-sm   font-semibold">
                           {invoice.adminVerified === false ? (
@@ -171,6 +177,8 @@ const AdminUserTable = ({ users }) => {
                             <DropdownMenuLabel>Action</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             {invoice.role === "ADMIN" ? (
+                              <div className="hidden"></div>
+                            ) : invoice.role === "USER" ? (
                               <div className="hidden"></div>
                             ) : (
                               <Link
@@ -241,7 +249,7 @@ const AdminUserTable = ({ users }) => {
                 </h2>
                 <p className="text-center">
                   This action cannot be undone. This will permanently delete
-                  this // job and remove your data from our servers.
+                  this user and remove your data from our servers.
                 </p>
               </div>
               <div className="w-[14rem] flex justify-between items-center">

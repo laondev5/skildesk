@@ -29,10 +29,12 @@ const AboutUs = () => {
         </section>
         <section className="mb-16">
           <Container>
-            <div className="flex gap-8 items-center">
+            <div className="flex  flex-col lg:flex-row gap-8 items-center px-8 lg:px-0">
               <div className="flex-1 space-y-4">
-                <h2 className="text-3xl font-bold mb-4">About Company</h2>
-                <p>
+                <h2 className="text-3xl text-center lg:text-start font-bold mb-4">
+                  About Company
+                </h2>
+                <p className="text-center lg:text-start">
                   At Skildesk, we understand the challenges both job seekers and
                   companies face in the recruitment process. Our mission is to
                   simplify this process by providing a user-friendly interface
@@ -51,7 +53,7 @@ const AboutUs = () => {
             </div>
           </Container>
         </section>
-        <section className="mb-16 text-center bg-gray-50 py-20">
+        <section className="mb-16 text-center bg-gray-50 py-20 px-8 lg:px-0">
           <Container>
             <h2 className="text-3xl font-bold mb-4">Company Unique Factor</h2>
             <div className="flex justify-center gap-4">
@@ -123,7 +125,7 @@ const AboutUs = () => {
         </section> */}
         <section className="mb-16">
           <Container>
-            <div className="flex gap-8 items-center">
+            <div className="flex  flex-col lg:flex-row gap-8 items-center px-8 lg:px-0">
               <Image
                 src="/work1.jpg"
                 alt="Company"
@@ -132,8 +134,10 @@ const AboutUs = () => {
                 className="w-[400px] h-[300px] object-cover rounded-lg"
               />
               <div className="flex-1 space-y-4">
-                <h2 className="text-3xl font-bold mb-4">For Job Seekers</h2>
-                <p>
+                <h2 className="text-3xl text-center lg:text-start font-bold mb-4">
+                  For Job Seekers
+                </h2>
+                <p className="text-center lg:text-start">
                   Whether you are a recent graduate looking for your first job
                   or a seasoned professional seeking a new challenge, skildesk
                   is here to support you in your job search journey. we offers a
@@ -148,10 +152,12 @@ const AboutUs = () => {
         </section>
         <section className="mb-16">
           <Container>
-            <div className="flex gap-8 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 items-center px-8 lg:px-0">
               <div className="flex-1 space-y-4">
-                <h2 className="text-3xl font-bold mb-4">For Companies</h2>
-                <p>
+                <h2 className="text-3xl text-center lg:text-start font-bold mb-4">
+                  For Companies
+                </h2>
+                <p className="text-center lg:text-start">
                   Finding the right talent for your organization is crucial for
                   success. With skildesk, you can reach a diverse pool of
                   qualified candidates and showcase your job openings to a broad

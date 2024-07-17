@@ -47,7 +47,7 @@ export default async function Home() {
                     </Button>
                   ) : (
                     <Button className="rounded-md">
-                      <Link href="/register">Start for free</Link>
+                      <Link href="/mid">Get started</Link>
                     </Button>
                   )}
 

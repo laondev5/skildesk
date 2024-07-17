@@ -98,16 +98,25 @@ const ProfileButton = () => {
           </Link>
         )}
         {session?.user?.role === "ADMIN" ? (
-          <Link
-            href={{
-              pathname: "/admin_register",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
-            <DropdownMenuItem>Add Admin</DropdownMenuItem>
-          </Link>
+          <>
+            <Link
+              href={{
+                pathname: "/admin_register",
+                query: {
+                  itemId: session?.user?.id,
+                },
+              }}
+            >
+              <DropdownMenuItem>Add Admin</DropdownMenuItem>
+            </Link>
+            <Link
+              href={{
+                pathname: "/admin/terms",
+              }}
+            >
+              <DropdownMenuItem>Terms and Condition</DropdownMenuItem>
+            </Link>
+          </>
         ) : (
           <div className="hidden"></div>
         )}

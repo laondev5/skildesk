@@ -1,23 +1,79 @@
-import Image from 'next/image';
-import React from 'react';
-
+"use client";
+import Image from "next/image";
+import React from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 const JobItem = ({ job, setJobId }) => {
-    console.log(job)
+  const { data: session } = useSession({});
+  const Router = useRouter();
+
+  const handleClick = () => {
+    if (session?.user?.role === "USER") {
+      Router.push(`/user/${jobId}`);
+    } else if (session?.user?.role === "ADMIN") {
+      Router.push("/admin");
+    } else if (session?.user?.role === "VENDOR") {
+      Router.push("/vendor");
+    } else {
+      Router.push("/login");
+    }
+  };
+  //console.log(job)
   return (
-    <div onClick={()=>setJobId(job.id)} className="flex justify-between items-center p-4 mb-4 bg-white rounded-md shadow hover:shadow-md">
-        <div  className="w=[5rem] h-[5rem] rounded-md">
-            <Image src={job.coverImage} alt="cover image" width={100} height={100}  className="w=[5rem] h-[5rem] rounded-md" />
+    <>
+      <div
+        onClick={() => setJobId(job.id)}
+        className="hidden lg:flex justify-between items-center  lg:w-4/5 p-4 mb-4 bg-white rounded-md shadow hover:shadow-md"
+      >
+        <div className="w=[5rem] h-[5rem] rounded-md">
+          <Image
+            src={job.coverImage}
+            alt="cover image"
+            width={100}
+            height={100}
+            className="w=[5rem] h-[5rem] rounded-md"
+          />
         </div>
-      <div>
-        <h3 className="text-lg font-bold">{job.title}</h3>
-        <p>{job.brandName}</p>
-        <p className="text-gray-600">{job.city}</p>
-        <p className="text-gray-600">{job.country} • {job.jobType} • {job.status} </p>
+        <div>
+          <h3 className="text-lg font-bold">{job.title}</h3>
+          <p>{job.brandName}</p>
+          <p className="text-gray-600">{job.city}</p>
+          <p className="text-gray-600">
+            {job.country} • {job.jobType} • {job.status}{" "}
+          </p>
+        </div>
+        <div>
+          <p className="text-blue-600 font-bold">{job.pay}</p>
+        </div>
       </div>
-      <div>
-        <p className="text-blue-600 font-bold">{job.pay}</p>
+
+      {/* mobile view */}
+      <div
+        onClick={handleClick}
+        className="flex flex-col  lg:hidden w-[20rem] p-4 mb-4 bg-white rounded-md shadow hover:shadow-md"
+      >
+        <div className="w=[5rem] h-[5rem] rounded-md">
+          <Image
+            src={job.coverImage}
+            alt="cover image"
+            width={100}
+            height={100}
+            className="w=[5rem] h-[5rem] rounded-md"
+          />
+        </div>
+        <div>
+          <h3 className="text-md line-clamp-1 font-bold">{job.title}</h3>
+          <p>{job.brandName}</p>
+          <p className="text-gray-600">{job.city}</p>
+          <p className="text-gray-600">
+            {job.country} • {job.jobType} • {job.status}{" "}
+          </p>
+        </div>
+        <div>
+          <p className="text-blue-600 font-bold">{job.pay}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

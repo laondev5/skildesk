@@ -5,7 +5,7 @@ import { getAllUsers } from "@/app/action/getAllUsers";
 const page = async () => {
   const users = await getAllUsers();
 
-  console.log(users);
+  //console.log(users);
   return (
     <div>
       <AdminUserTable users={users} />

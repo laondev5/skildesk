@@ -10,17 +10,6 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import {
-//   AlertDialog,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-//   AlertDialogContent,
-//   AlertDialogDescription,
-//   AlertDialogFooter,
-//   AlertDialogHeader,
-//   AlertDialogTitle,
-//   AlertDialogTrigger,
-// } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -73,14 +62,6 @@ const AdminUserTable = ({ users }) => {
       toast.error("Failed to delete user");
     }
   };
-
-  // const amount = parseFloat(row.getValue("pay"));
-
-  // // Format the amount as a dollar amount
-  // const formatted = new Intl.NumberFormat("en-NG", {
-  //   style: "currency",
-  //   currency: "NGN",
-  // }).format(amount);
 
   const handleEdit = (id) => {
     console.log(id);
@@ -138,7 +119,9 @@ const AdminUserTable = ({ users }) => {
                     <TableCell>{invoice.brandName}</TableCell>
                     {invoice.role === "VENDOR" ? (
                       <TableCell>
-                        <Link href={invoice.website}>{invoice.website}</Link>
+                        <Link href={invoice.website ?? "/admin"}>
+                          {invoice.website}
+                        </Link>
                       </TableCell>
                     ) : (
                       "NULL"
@@ -222,24 +205,6 @@ const AdminUserTable = ({ users }) => {
       {/* //alert */}
 
       {isDelete && (
-        // <AlertDialog>
-        //   <AlertDialogTrigger>
-        //     <span className="text-red-500">Delete</span>
-        //   </AlertDialogTrigger>
-        //   <AlertDialogContent>
-        //     <AlertDialogHeader>
-        //       <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-        //       <AlertDialogDescription>
-        //         This action cannot be undone. This will permanently delete this
-        //         job and remove your data from our servers.
-        //       </AlertDialogDescription>
-        //     </AlertDialogHeader>
-        //     <AlertDialogFooter>
-        //       <AlertDialogCancel>Cancel</AlertDialogCancel>
-        //       <AlertDialogAction>Continue</AlertDialogAction>
-        //     </AlertDialogFooter>
-        //   </AlertDialogContent>
-        // </AlertDialog>
         <div className="absolute left-0 top-0 w-full h-screen bg-gray-300/5">
           <div className="w-full h-full flex justify-center ">
             <div className="flex flex-col justify-center items-center w-[40rem] h-[17rem] bg-white  rounded-md shadow-md px-4">

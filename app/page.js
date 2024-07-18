@@ -8,11 +8,13 @@ import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 // import { authOptions } from "@/app/(auth)/api/auth/[...nextauth]/route";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import NewsLetter from "@/components/NewsLetter";
 export default async function Home() {
   const session = await getServerSession(authOptions);
   return (
     <main>
       <Navbar />
+      <NewsLetter />
       {/* hero section */}
       <section className="relative flex w-full h-[80vh] lg:h-[73vh] overflow-hidden">
         {/* desktop hero */}

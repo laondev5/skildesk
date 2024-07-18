@@ -31,7 +31,7 @@ export default function NewsLetter() {
             <div className="w-[55%] h-[30rem] relative  flex justify-center items-center">
               <div
                 onClick={() => setIsOpen(false)}
-                className="absolute top-[8rem] right-[18rem]"
+                className="absolute top-[6rem] right-2  lg:top-[8rem] lg:right-[18rem]"
               >
                 <Button size="icon">
                   <X />

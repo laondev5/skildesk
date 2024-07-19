@@ -34,6 +34,12 @@ const JobDetail = ({ jobs, jobId }) => {
   //console.log(job);
   return (
     <div className="hidden lg:flex flex-col w-[40%] p-6 bg-white">
+      <button
+        onClick={handleClick}
+        className="mt-4 p-2 bg-blue-600 text-white rounded-md"
+      >
+        Apply Now
+      </button>
       <div className="w=[5rem] h-[5rem] rounded-md">
         {job ? (
           <Image
@@ -86,13 +92,6 @@ const JobDetail = ({ jobs, jobId }) => {
           )}
         </div>
       </div>
-
-      <button
-        onClick={handleClick}
-        className="mt-4 p-2 bg-blue-600 text-white rounded-md"
-      >
-        Apply Now
-      </button>
     </div>
   );
 };

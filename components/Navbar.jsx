@@ -9,6 +9,14 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import ProfileButton from "./ui/ProfileButton";
 import { Circles } from "react-loader-spinner";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "./ui/dropdown-menu";
 
 const navItem = [
   { name: "Home", link: "/" },
@@ -73,10 +81,26 @@ const Navbar = () => {
                 <Button asChild variant="outline">
                   <Link href="/login">Login</Link>
                 </Button>
-
-                <Button className="bg-blue-700">
-                  <Link href="/mid">Sign up</Link>
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Button className="bg-blue-700">Sign up</Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>Sign up as</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href="/register-vendor">
+                        Sign up as a Recruiter
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href="/register">Sign up as a Job Seeker</Link>
+                    </DropdownMenuItem>
+                    {/* <DropdownMenuItem>
+                      <Link href="/register-admin">Admin</Link>
+                    </DropdownMenuItem> */}
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 {/* <Button variant="ghost">
                   <Link href="/register">Sign up as a job seeker</Link>
                 </Button> */}

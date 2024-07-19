@@ -6,13 +6,19 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   const body = await request.json();
   const { data } = body;
-  console.log(data);
+  //console.log(data);
   try {
     const job = await prisma.applicant.create({
       data: {
-        resume: data.image,
+        resume: data.resume,
+        name: data.name,
+        email: data.email,
+        coverLetter: data.coverLetter,
+        linkedin: data.linkedin,
+        portfolio: data.portfolio,
         jobId: data.jobId,
-        userId: data.user,
+        userId: data.userId,
+        status: data.status,
       },
     });
     //console.log(job);

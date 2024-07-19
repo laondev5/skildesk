@@ -50,58 +50,10 @@ model User {
   adminVerified            Boolean     @default(false)
   jobs                     Jobs[]
   blogs                    Blogs[]
-  apply                    Applicant[]
+  applicant                Applicant[]
   comment                  Comment[]
   terms                    Terms[]
-  // userId                   String?          @db.ObjectId
-  // vendorProfile            VendorProfile?
-  // user                     UserProfile?
-  // role                     Role             @default(USER)
-  // jobs                     Jobs[]
-  // VendorDocuments          VendorDocuments?
-  // vendorDocumentsId        String?          @db.ObjectId
-  // VendorDocuments          VendorDocuments?
-  // UserProfile              UserProfile?
 }
-
-// model VendorProfile {
-//   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-//   description String?
-//   industry    String?
-//   brandName   String?
-//   country     String?
-//   city        String?
-//   state       String?
-//   zip         String?
-//   phoneNumber Int?
-//   website     String?
-//   completed   String?
-//   image       String?
-//   address     String?
-//   userId      String  @unique @db.ObjectId
-//   user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-// }
-
-// model VendorDocuments {
-//   id           String  @id @default(auto()) @map("_id") @db.ObjectId
-//   proveOfAddre String?
-//   businessReg  String?
-//   idCard       String?
-//   taxReg       String?
-//   userId       String  @unique @db.ObjectId
-//   user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-// }
-
-// model UserProfile {
-//   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-//   location          String?
-//   phoneNumber       Int
-//   verifyPhoneNumber Boolean @default(false)
-//   otp               Int?
-//   image             String?
-//   userId            String  @unique @db.ObjectId
-//   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-// }
 
 model Jobs {
   id          String      @id @default(auto()) @map("_id") @db.ObjectId
@@ -146,14 +98,20 @@ model Comment {
 }
 
 model Applicant {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  resume    String?
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @updatedAt
-  userId    String    @db.ObjectId
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  jobId     String    @db.ObjectId
-  job       Jobs      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  resume      String?
+  coverLetter String?
+  status      String?
+  name        String?
+  email       String?
+  linkedin    String?
+  portfolio   String?
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  userId      String    @db.ObjectId
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobId       String    @db.ObjectId
+  job         Jobs      @relation(fields: [jobId], references: [id], onDelete: Cascade)
 }
 
 model Terms {

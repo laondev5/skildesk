@@ -39,8 +39,8 @@ export default function HomePage() {
               </div>
               <img
                 src="/hero1.gif"
-                width="650"
-                height="410"
+                width="750"
+                height="510"
                 alt="Hero"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               />

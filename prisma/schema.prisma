@@ -106,6 +106,7 @@ model Applicant {
   email       String?
   linkedin    String?
   portfolio   String?
+  video       String?
   createdAt   DateTime? @default(now())
   updatedAt   DateTime? @updatedAt
   userId      String    @db.ObjectId

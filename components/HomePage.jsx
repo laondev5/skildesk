@@ -9,7 +9,7 @@ export default function HomePage() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  <h1 className="text-5xl text-center lg:text-left font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
                     Find Your Perfect Match, Effortlessly
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -38,7 +38,7 @@ export default function HomePage() {
                 </div>
               </div>
               <img
-                src="/placeholder.svg"
+                src="/hero1.gif"
                 width="550"
                 height="310"
                 alt="Hero"

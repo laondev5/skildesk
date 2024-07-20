@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Toaster, toast } from "sonner";
-const ImageUpload = () => {
+import { useRouter } from "next/navigation";
+const ImageUpload = ({ jobId }) => {
   const [file, setFile] = useState();
-  //   const [image1, setImage1] = useState(null);
-  //   const [image2, setImage2] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({});
-  // console.log(image1, image2);
+
+  const router = useRouter();
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -25,6 +26,7 @@ const ImageUpload = () => {
   };
 
   const createTask = async (data) => {
+    console.log(data);
     // try {
     //   const response = await fetch("/api/applicant", {
     //     method: "POST",
@@ -50,10 +52,10 @@ const ImageUpload = () => {
   };
 
   const onSubmit = async () => {
-    setData({ file });
+    // setData({ file });
     //console.log(data);
     const imageFile = file;
-    //console.log(imageFile);
+    console.log(imageFile);
     //upload image
     const formData = new FormData();
     formData.append("file", imageFile);
@@ -74,7 +76,8 @@ const ImageUpload = () => {
       const imageData = await response.json();
       //console.log("Image uploaded:", imageData);
       const image = imageData?.secure_url;
-      setData({ image });
+      console.log(image);
+      setData({ ...image, jobId });
       console.log(data);
       createTask(data);
     } catch (error) {

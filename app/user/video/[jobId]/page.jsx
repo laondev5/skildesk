@@ -1,10 +1,10 @@
 import ImageUpload from "@/components/userComponent/ApplyJob";
 import React from "react";
 
-const page = () => {
+const page = ({ params }) => {
   return (
     <div>
-      <ImageUpload />
+      <ImageUpload jobId={params.jobId} />
     </div>
   );
 };

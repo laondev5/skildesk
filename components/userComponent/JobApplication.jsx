@@ -58,7 +58,7 @@ const JobApplication = ({
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    //console.log(data);
     setIsLoading(true);
     // get image
     const rawImage1 = data?.resume[0];

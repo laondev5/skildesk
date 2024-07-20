@@ -113,7 +113,7 @@ export default function HomePage() {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="w-[90%] lg:w-[60%] rounded-md bg-blue-950 text-white flex flex-col justify-center items-center py-8">
+              <div className="w-[90%] lg:w-[60%] rounded-[5rem] bg-blue-950 text-white flex flex-col justify-center items-center py-8">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-blue-950">
                     Unbeatable Value

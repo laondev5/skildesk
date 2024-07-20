@@ -43,8 +43,7 @@ export default function NewsLetter() {
                     Subscribe to our newsletter
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
-                    Stay up to date with the latest news, updates, and exclusive
-                    offers.
+                    Be the first to know when a new job is posted
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

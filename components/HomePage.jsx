@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4  text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm">
+                <div className="inline-block rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 text-sm">
                   Beyond Recruitment
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -119,13 +119,13 @@ export default function HomePage() {
                     Unbeatable Value
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Unmatched Quality
+                    Empower Your Business Today!
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    At Skildesk, we believe in delivering exceptional value
-                    without compromising on quality. Our transparent pricing
-                    structure and flexible plans ensure that you get the best
-                    return on your investment.
+                    Join the growing number of companies that trust Skildesk to
+                    streamline their hiring process and enhance workforce
+                    effectiveness. Experience a seamless recruitment journey and
+                    watch your team thrive.
                   </p>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm">
+                <div className="inline-block rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 text-sm">
                   24/7 Support
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">

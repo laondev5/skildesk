@@ -436,7 +436,7 @@ const CreateJob = () => {
           </div>
         </div>
         <div className="my-2">
-          <Button variant="main" size="lg">
+          <Button variant="default" size="lg">
             Submit
           </Button>
         </div>

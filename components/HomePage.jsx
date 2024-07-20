@@ -1,8 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-[80dvh]">
+    <div className="flex flex-col min-h-[80dvh] overflow-x-hidden">
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-blue-100">
           <div className="container px-4 md:px-6">
@@ -39,8 +40,8 @@ export default function HomePage() {
               </div>
               <img
                 src="/hero1.gif"
-                width="750"
-                height="510"
+                width="650"
+                height="410"
                 alt="Hero"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               />
@@ -49,7 +50,7 @@ export default function HomePage() {
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="flex flex-col items-center justify-center space-y-4  text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm">
                   Beyond Recruitment
@@ -66,18 +67,19 @@ export default function HomePage() {
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
               <img
-                src="/placeholder.svg"
+                src="/hero2.svg"
                 width="550"
                 height="310"
                 alt="Image"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center w-[20rem] lg:w-[50rem] lg:order-last"
               />
-              <div className="flex flex-col justify-center space-y-4">
+              {/* <Image src="/hero4.png" alt="hero2" width={100} height={100} /> */}
+              <div className="flex flex-col justify-center space-y-4  w-[23rem] lg:w-full">
                 <ul className="grid gap-6">
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Talent Acquisition</h3>
-                      <p className="text-muted-foreground">
+                      <p className="w-[90%]">
                         Leverage our extensive network and advanced search
                         capabilities to find the best-fit candidates for your
                         roles.
@@ -87,7 +89,7 @@ export default function HomePage() {
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Employer Branding</h3>
-                      <p className="text-muted-foreground">
+                      <p className="w-[90%]">
                         Showcase your company&apos;s unique culture and values
                         to attract top talent and build a strong employer brand.
                       </p>
@@ -96,7 +98,7 @@ export default function HomePage() {
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Talent Management</h3>
-                      <p className="text-muted-foreground">
+                      <p className="w-[90%]">
                         Empower your teams with our comprehensive suite of tools
                         for performance management, learning and development,
                         and succession planning.
@@ -111,28 +113,32 @@ export default function HomePage() {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                  Unbeatable Value
+              <div className="w-[90%] lg:w-[60%] rounded-md bg-blue-950 text-white flex flex-col justify-center items-center py-8">
+                <div className="space-y-2">
+                  <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-blue-950">
+                    Unbeatable Value
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Unmatched Quality
+                  </h2>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    At Skildesk, we believe in delivering exceptional value
+                    without compromising on quality. Our transparent pricing
+                    structure and flexible plans ensure that you get the best
+                    return on your investment.
+                  </p>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Unmatched Quality
-                </h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  At Skildesk, we believe in delivering exceptional value
-                  without compromising on quality. Our transparent pricing
-                  structure and flexible plans ensure that you get the best
-                  return on your investment.
-                </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
+            {/* <div className="mx-auto grid  max-w-3xl lg:max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12 overflow-hidden">
+              <div className="flex flex-col justify-center space-y-4 w-[23rem]">
                 <ul className="grid gap-6">
                   <li>
                     <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">Transparent Pricing</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="text-xl font-bold ">
+                        Transparent Pricing
+                      </h3>
+                      <p className="  w-[90%]">
                         Our pricing is straightforward and easy to understand,
                         with no hidden fees or surprises.
                       </p>
@@ -141,7 +147,7 @@ export default function HomePage() {
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Flexible Plans</h3>
-                      <p className="text-muted-foreground">
+                      <p className="w-[90%]">
                         Choose from a range of plans that fit your budget and
                         hiring needs, whether you&apos;re a small business or a
                         large enterprise.
@@ -151,7 +157,7 @@ export default function HomePage() {
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Dedicated Support</h3>
-                      <p className="text-muted-foreground">
+                      <p className=" w-[90%]">
                         Our team of experts is always here to assist you and
                         ensure you get the most out of our platform.
                       </p>
@@ -166,7 +172,7 @@ export default function HomePage() {
                 alt="Image"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               />
-            </div>
+            </div> */}
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
@@ -188,51 +194,54 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <img
-                src="/placeholder.svg"
-                width="550"
-                height="310"
-                alt="Image"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-              />
-              <div className="flex flex-col justify-center space-y-4">
+              <div className="flex flex-col justify-center space-y-4 w-[23rem] lg:w-full">
                 <ul className="grid gap-6">
                   <li>
                     <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">Responsive Support</h3>
-                      <p className="text-muted-foreground">
-                        Our team is available around the clock to provide timely
-                        and personalized assistance, ensuring your hiring
-                        process runs smoothly.
+                      <h3 className="text-xl font-bold">Worldwide Reach</h3>
+                      <p className="w-[90%]">
+                        Our extensive network spans multiple continents,
+                        allowing us to source top-tier talent from diverse
+                        markets. This means you can access a global pool of
+                        skilled candidates ready to contribute to your success.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="grid gap-1">
+                      <h3 className="text-xl font-bold">Beyond Recruitment</h3>
+                      <p className="w-[90%]">
+                        Our commitment doesn’t end with hiring. Skildesk is
+                        dedicated to helping you manage and enhance the
+                        effectiveness of your workforce. We provide ongoing
+                        support and tools to monitor performance, ensuring that
+                        your team not only meets expectations but exceeds them.
                       </p>
                     </div>
                   </li>
                   <li>
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">
-                        Multilingual Assistance
+                        Tailored Management Strategies
                       </h3>
-                      <p className="text-muted-foreground">
-                        Whether you&apos;re based in the US, Europe, or Asia,
-                        our support team can communicate with you in your
-                        preferred language.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">
-                        Comprehensive Resources
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Explore our extensive knowledge base, tutorials, and
-                        guides to get the most out of our platform and stay
-                        ahead of the curve.
+                      <p className="w-[90%]">
+                        We believe that effective management is key to
+                        maximizing productivity. Our experts work with you to
+                        implement strategies that foster collaboration,
+                        engagement, and continuous improvement
+                        among your employees.
                       </p>
                     </div>
                   </li>
                 </ul>
               </div>
+              <img
+                src="/hero3.gif"
+                width="550"
+                height="310"
+                alt="Image"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full order-first lg:order-first"
+              />
             </div>
           </div>
         </section>

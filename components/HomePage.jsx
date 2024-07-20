@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
-export default function HomePage() {
+export default function HomePage({ session }) {
   return (
     <div className="flex flex-col min-h-[80dvh] overflow-x-hidden">
       <main className="flex-1">
@@ -22,15 +23,23 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  {session?.user ? (
+                    <Button className="rounded-md">
+                      {session?.user?.role === "VENDOR" ? (
+                        <Link href="/vendor">Continue to dashboard</Link>
+                      ) : session?.user?.role === "USER" ? (
+                        <Link href="/user">Apply for a job</Link>
+                      ) : (
+                        <Link href="/admin">Continue to dashboard</Link>
+                      )}
+                    </Button>
+                  ) : (
+                    <Button className="rounded-md">
+                      <Link href="/mid">Get started</Link>
+                    </Button>
+                  )}
                   <Link
-                    href="#"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
-                  >
-                    Get Started
-                  </Link>
-                  <Link
-                    href="#"
+                    href="/about"
                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
@@ -177,7 +186,7 @@ export default function HomePage() {
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 text-sm">
                   24/7 Support

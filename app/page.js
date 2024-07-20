@@ -16,7 +16,7 @@ export default async function Home() {
     <main>
       <Navbar />
       <NewsLetter />
-      <HomePage />
+      <HomePage session={session} />
 
       {/* <section className="relative flex w-full h-[80vh] lg:h-[73vh] overflow-hidden">
        

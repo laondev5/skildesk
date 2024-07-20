@@ -9,28 +9,22 @@ const Footer = () => {
         <div className="grid gap-2">
           <h3 className="font-semibold">Quick Links</h3>
           <Link
-            href="#"
+            href="/"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
             Home
           </Link>
           <Link
-            href="#"
+            href="/about"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
             About
           </Link>
+
           <Link
-            href="#"
-            className="hover:underline hover:underline-offset-4"
-            prefetch={false}
-          >
-            Services
-          </Link>
-          <Link
-            href="#"
+            href="/contact"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
@@ -40,36 +34,29 @@ const Footer = () => {
         <div className="grid gap-2">
           <h3 className="font-semibold">Resources</h3>
           <Link
-            href="#"
+            href="/blog"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
             Blog
           </Link>
           <Link
-            href="#"
+            href="/available_job"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
-            FAQ
+            Job
           </Link>
           <Link
-            href="#"
+            href="/login"
             className="hover:underline hover:underline-offset-4"
             prefetch={false}
           >
-            Documentation
-          </Link>
-          <Link
-            href="#"
-            className="hover:underline hover:underline-offset-4"
-            prefetch={false}
-          >
-            Privacy Policy
+            Sign in
           </Link>
         </div>
         <div className="grid gap-2">
-          <h3 className="font-semibold">Company</h3>
+          {/* <h3 className="font-semibold">Company</h3>
           <Link
             href="#"
             className="hover:underline hover:underline-offset-4"
@@ -97,7 +84,7 @@ const Footer = () => {
             prefetch={false}
           >
             Press
-          </Link>
+          </Link> */}
         </div>
         <div className="grid gap-2">
           <h3 className="font-semibold">Follow Us</h3>

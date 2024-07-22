@@ -41,6 +41,9 @@ const BrandRegisterForm = ({ role }) => {
   });
 
   const onSubmit = async (values) => {
+    if (session?.user) {
+      setIsChecked(true);
+    }
     if (isChecked == false) {
       toast.error("You must agree to the terms and conditions");
       return;
@@ -77,6 +80,10 @@ const BrandRegisterForm = ({ role }) => {
       toast.error("Failed to Register user");
     }
   };
+
+  // if (session?.user) {
+  //   setIsChecked(true);
+  // }
   return (
     <div className="w-[80%] shadow-md rounded-lg h-[33rem] p-6">
       <Toaster position="bottom-right" expand={false} richColors />

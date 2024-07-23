@@ -54,12 +54,12 @@ const EditJobs = ({ jobData }) => {
   const { data: session } = useSession();
   const userData = session?.user;
   const userId = userData?.id;
-  console.log();
+  //console.log();
   const handleContent = (input) => {
     setDes(input);
   };
   const uploadData = async (itemId, data) => {
-    console.log(itemId, data);
+    //console.log(itemId, data);
     try {
       const res = await updateJob(itemId, data);
       if (res) {
@@ -71,7 +71,7 @@ const EditJobs = ({ jobData }) => {
   };
 
   const onSubmit = async (data) => {
-    console.log(data, des);
+    //console.log(data, des);
     setIsLoading(true);
     // get image
     const rawImage = data?.file[0];

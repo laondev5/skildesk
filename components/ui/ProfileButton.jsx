@@ -26,74 +26,17 @@ const ProfileButton = () => {
       <DropdownMenuContent>
         <DropdownMenuLabel>Profile</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {/* <Link href="#">
-          <DropdownMenuItem>My Account</DropdownMenuItem>
-        </Link> */}
+
         {session?.user?.role === "VENDOR" ? (
-          <Link
-            href={{
-              pathname: "/vendor/account",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
-            <DropdownMenuItem>My Account</DropdownMenuItem>
-          </Link>
-        ) : session?.user?.role === "ADMIN" ? (
-          <Link
-            href={{
-              pathname: "/admin/account",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
-            <DropdownMenuItem>My Account</DropdownMenuItem>
-          </Link>
-        ) : (
-          <Link
-            href={{
-              pathname: "/user/account",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
-            <DropdownMenuItem>My Account</DropdownMenuItem>
-          </Link>
-        )}
-        {session?.user?.role === "VENDOR" ? (
-          <Link
-            href={{
-              pathname: "/vendor/setting",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
+          <Link href="/vendor/account">
             <DropdownMenuItem>Settings</DropdownMenuItem>
           </Link>
         ) : session?.user?.role === "ADMIN" ? (
-          <Link
-            href={{
-              pathname: "/admin/setting",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
+          <Link href="/admin/account">
             <DropdownMenuItem>Settings</DropdownMenuItem>
           </Link>
         ) : (
-          <Link
-            href={{
-              pathname: "/user/setting",
-              query: {
-                itemId: session?.user?.id,
-              },
-            }}
-          >
+          <Link href=" /user/account">
             <DropdownMenuItem>Settings</DropdownMenuItem>
           </Link>
         )}

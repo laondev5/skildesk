@@ -38,19 +38,8 @@ const CreateJob = () => {
   const { data: session } = useSession();
   const userData = session?.user;
   const userId = userData?.id;
-  console.log();
 
-  // const uploadData = async (userId, data) => {
-  //   console.log(userId, data);
-  //   try {
-  //     const res = await createJobs(userId, data);
-  //     if (res) {
-  //       toast.success("Job created successfully");
-  //     }
-  //   } catch (error) {
-  //     toast.error("Failed to create job");
-  //   }
-  // };
+  //console.log();
 
   const createTask = async (userId, data) => {
     try {
@@ -64,18 +53,18 @@ const CreateJob = () => {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("Job opening created successfully:", result);
+        //console.log("Job opening created successfully:", result);
         toast.success("Job opening created successfully");
 
         return result;
       } else {
-        console.error("Error updating user:", result);
+        //console.error("Error updating user:", result);
         toast.error("Failed to create job opening");
 
         return result;
       }
     } catch (error) {
-      console.error("Error updating user:", error);
+      //console.error("Error updating user:", error);
       toast.error("Failed to create job opening");
     }
   };

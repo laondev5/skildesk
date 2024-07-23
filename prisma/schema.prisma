@@ -28,6 +28,7 @@ model User {
   emailVerifiedDate        DateTime?
   verificationRequestCount Int?
   verificationToken        String?
+  forgetPasswordToken      String?
   password                 String?
   role                     Role        @default(USER)
   status                   String?

@@ -8,7 +8,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from "sonner";
 
-const ForgetPassword = () => {
+const ResetPassword = ({ userId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -21,20 +21,21 @@ const ForgetPassword = () => {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
+    const passwordData = { ...data, id: userId };
     try {
-      const response = await fetch("/api/forget-password", {
+      const response = await fetch("/api/reset-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ passwordData }),
       });
       const result = await response.json();
       //console.log(result);
-      const id = result.id;
+      //const id = result.id;
       if (response.ok) {
-        toast.success("Verification code has been sent to you email");
-        router.push(`/verification/${id}`);
+        toast.success("Password reset successfully");
+        router.push(`/login`);
       }
     } catch (error) {
       console.error(error);
@@ -46,12 +47,12 @@ const ForgetPassword = () => {
     <div className="w-[50%] rounded-md shadow-md py-8 px-12">
       <Toaster position="bottom-right" expand={false} richColors />
       <h2 className="text-2xl font-bold text-blue-950 text-center">
-        Please enter you email here
+        Please enter your new password here
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className=" my-2">
           <Controller
-            name="email"
+            name="password"
             control={control}
             defaultValue=""
             render={({ field: { onChange, onBlur, value } }) => (
@@ -60,16 +61,43 @@ const ForgetPassword = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  Email
+                  Password
                 </Label>
                 <Input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="password"
+                  id="password"
+                  name="password"
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
-                  placeholder="Enter you email..."
+                  placeholder="Enter your password..."
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            )}
+          />
+        </div>
+        <div className=" my-2">
+          <Controller
+            name="confirmPassword"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, onBlur, value } }) => (
+              <div>
+                <Label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Confirm Password
+                </Label>
+                <Input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  placeholder="Confirm Password..."
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
@@ -88,7 +116,7 @@ const ForgetPassword = () => {
               wrapperClass
             />
           ) : (
-            "Submit Email"
+            "Change password"
           )}
         </Button>
       </form>
@@ -96,4 +124,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default ResetPassword;

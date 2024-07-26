@@ -11,9 +11,17 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { Controller, useForm } from "react-hook-form";
 
 export default function NewsLetter() {
   const [isOpen, setIsOpen] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,6 +30,21 @@ export default function NewsLetter() {
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);
+  const onSubmit = async (data) => {
+    console.log(data);
+    //send data to server
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    });
+    if (response) {
+      setIsOpen(false);
+    }
+    //const result = await response.json();
+  };
 
   return (
     <>
@@ -47,17 +70,32 @@ export default function NewsLetter() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4">
-                    <div>
-                      <Label htmlFor="email" className="sr-only">
-                        Email
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        className="w-full"
-                        required
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <div className=" my-2">
+                      <Controller
+                        name="email"
+                        control={control}
+                        defaultValue=""
+                        render={({ field: { onChange, onBlur, value } }) => (
+                          <div>
+                            <Label
+                              className="block text-gray-700 text-sm font-bold mb-2"
+                              htmlFor="email"
+                            >
+                              Email
+                            </Label>
+                            <Input
+                              type="email"
+                              id="email"
+                              name="email"
+                              onChange={onChange}
+                              onBlur={onBlur}
+                              value={value}
+                              placeholder="Email..."
+                              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                          </div>
+                        )}
                       />
                     </div>
                     <Button type="submit" className="w-full">

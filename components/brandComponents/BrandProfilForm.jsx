@@ -354,7 +354,7 @@ const BrandProfilForm = () => {
             htmlFor="message"
             className="block text-gray-700 text-sm font-bold mb-2"
           >
-            Description
+            Tell us about your organization
           </Label>
           <textarea
             {...register("description", { required: true })}
@@ -372,6 +372,12 @@ const BrandProfilForm = () => {
         </div>
 
         <div className="my-2">
+          <Label
+            htmlFor="message"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Upload a profile image
+          </Label>
           <input
             {...register("file")}
             // onChange={(e) => handleChange(e)}
@@ -383,7 +389,7 @@ const BrandProfilForm = () => {
         </div>
 
         <div className="my-2">
-          <Button type="submit" variant="main" size="lg">
+          <Button type="submit" variant="default" size="lg">
             Submit
           </Button>
         </div>

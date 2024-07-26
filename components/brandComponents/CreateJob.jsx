@@ -21,6 +21,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from "sonner";
 import Tiptap from "../Tiptap";
+import { useRouter } from "next/navigation";
 const CreateJob = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [des, setDes] = useState("");
@@ -38,6 +39,7 @@ const CreateJob = () => {
   const { data: session } = useSession();
   const userData = session?.user;
   const userId = userData?.id;
+  const router = useRouter();
 
   //console.log();
 
@@ -55,7 +57,7 @@ const CreateJob = () => {
       if (response.ok) {
         //console.log("Job opening created successfully:", result);
         toast.success("Job opening created successfully");
-
+        router.push("/admin");
         return result;
       } else {
         //console.error("Error updating user:", result);

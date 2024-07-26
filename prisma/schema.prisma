@@ -124,3 +124,10 @@ model Terms {
   userId    String    @db.ObjectId
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Newsletter {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+}

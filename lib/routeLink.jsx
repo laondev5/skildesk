@@ -26,6 +26,11 @@ export const AdminRouteLink = [
   { label: "View user", path: "/admin/users", icon: <FilePlus /> },
   { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
   { label: "Creat blog", path: "/admin/blog", icon: <NotebookPen /> },
+  {
+    label: "Newsletter Email",
+    path: "/admin/newsletter",
+    icon: <NotebookPen />,
+  },
 ];
 
 export const UserRouteLink = [

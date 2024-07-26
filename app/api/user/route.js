@@ -2,6 +2,9 @@ import bcrypt from "bcrypt";
 //import { PrismaClient } from "@prisma/client/";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+//import bcrypt from "bcrypt";
+//import { generateRandomIntegers } from "@/lib/AutogenCode";
+import nodemailer from "nodemailer";
 
 const prisma = new PrismaClient();
 
@@ -31,6 +34,7 @@ export async function POST(request) {
   if (userExist) {
     throw new Error("user with this email already exist");
   }
+  const otpToken = Math.floor(Math.random() * 1000000).toString();
 
   const hashPassword = await bcrypt.hash(password, 10);
   const brand = await prisma.user.create({
@@ -43,5 +47,39 @@ export async function POST(request) {
     },
   });
 
-  return NextResponse.json(brand);
+  if (brand) {
+    const hashOtp = await bcrypt.hash(otpToken, 10);
+    const hashedOtp = await prisma.User.update({
+      where: { email: brand.email },
+      data: { forgetPasswordToken: hashOtp },
+    });
+
+    const subject = "Copy the code to complete you otp verification";
+    const transporter = nodemailer.createTransport({
+      // service: "zoho",
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
+      secure: true,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASSWORD,
+      },
+      tls: {
+        ciphers: "SSLv3",
+      },
+    });
+
+    const mailOption = {
+      from: process.env.MAIL_USER,
+      to: brand.email,
+      subject: "Skildesk",
+      html: `
+        <h3>Verification Code</h3>
+        <li> title: ${subject}</li>
+        <li> message: ${otpToken}</li> 
+        `,
+    };
+    await transporter.sendMail(mailOption);
+    return NextResponse.json(hashedOtp);
+  }
 }

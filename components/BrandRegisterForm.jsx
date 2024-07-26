@@ -66,15 +66,15 @@ const BrandRegisterForm = ({ role }) => {
       }),
     });
 
-    //const info = await response.json();
-    console.log(response);
+    const info = await response.json();
+    //console.log(response);
     if (response.ok) {
       setIsLoading(false);
       toast.success("Registration successful");
       if (session?.user) {
         Router.push("/admin");
       }
-      Router.push("/login");
+      Router.push(`/otp/${info?.id}`);
     } else {
       setIsLoading(false);
       toast.error("A user with that email already exist");

@@ -7,7 +7,8 @@ import Card from "@/components/Card";
 
 const page = async () => {
   const jobs = await getAllJobs();
-  console.log(jobs);
+  //console.log(jobs);
+
   return (
     <div className="py-2">
       <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-3 gap-4">
@@ -69,6 +70,7 @@ const page = async () => {
           </div>
         </Card>
       </div>
+      {/* <BrandDataTable /> */}
       <BrandDataTable jobs={jobs} />
     </div>
   );

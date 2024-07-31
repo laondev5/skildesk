@@ -47,16 +47,35 @@ import { deleteJob } from "@/app/action/deleteJob";
 import { Toaster, toast } from "sonner";
 //import getSymbolFromCurrency from "currency-symbol-map";
 import CurrencySymbol from "@/lib/CurrencySymbol";
+// import { getAllJobs } from "../action/getAllJobs";
+import { getAllJobs } from "@/app/action/getAllJobs";
+
+import { InfinitySpin } from "react-loader-spinner";
+
 const BrandDataTable = ({ jobs }) => {
-  console.log(jobs);
+  // console.log(jobs);
   const [isDelete, setIsDelete] = useState(false);
   const [deleteData, setDeleteData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [jobData, setJobData] = useState({});
   const { data: session } = useSession();
   const router = useRouter();
   const handleIsDelete = (id) => {
     setDeleteData(id);
     setIsDelete(true);
   };
+  console.log(jobData);
+  useEffect(() => {
+    setIsLoading(true);
+    const jobsData = async () => {
+      const res = await getAllJobs();
+      console.log(res);
+      if (res) {
+        setJobData(res);
+      }
+    };
+    jobsData();
+  }, []);
 
   //const usdSymbol = getSymbolFromCurrency("USD");
   const handleDelete = async (id) => {
@@ -71,14 +90,6 @@ const BrandDataTable = ({ jobs }) => {
       toast.error("Failed to delete job");
     }
   };
-
-  // const amount = parseFloat(row.getValue("pay"));
-
-  // // Format the amount as a dollar amount
-  // const formatted = new Intl.NumberFormat("en-NG", {
-  //   style: "currency",
-  //   currency: "NGN",
-  // }).format(amount);
 
   const handleEdit = (id) => {
     console.log(id);
@@ -95,135 +106,159 @@ const BrandDataTable = ({ jobs }) => {
   return (
     <div className="w-[100%] relative">
       <Toaster position="bottom-right" expand={false} richColors />
-      {jobs.length === 0 ? (
+      {/* {jobs.length === 0 ? (
         <Empty />
-      ) : (
-        <div className="mt-[5rem] mb-[5rem]">
-          <div className="font-bold text-2xl text-blue-950">
-            list of your recent Jobs
-          </div>
-          <div className="mt-[1rem] bg-white overflow-x-scroll">
-            <Table>
-              <TableCaption>A .</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[100px]">Brand name</TableHead>
-                  <TableHead>Jot title</TableHead>
-                  <TableHead>Industry</TableHead>
-                  <TableHead>Job type</TableHead>
-                  <TableHead>Country</TableHead>
-                  <TableHead>City</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Pay</TableHead>
-                  <TableHead className="text-right">
-                    <DotsHorizontalIcon />
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {jobs.map((invoice) => (
-                  <TableRow key={invoice.invoice}>
-                    <TableCell className="font-medium">
-                      {invoice.brandName}
-                    </TableCell>
-                    <TableCell>{invoice.title}</TableCell>
-                    <TableCell>{invoice.industry}</TableCell>
-                    <TableCell>{invoice.jobType}</TableCell>
-                    <TableCell>{invoice.country}</TableCell>
-                    <TableCell>{invoice.city}</TableCell>
-                    <TableCell>
-                      {invoice.status === "Approved" ? (
-                        <div className="py-1 px-3 rounded-sm text-green-600  font-semibold">
-                          {invoice.status}
+      ) : ( */}
+      <div className="mt-[5rem] mb-[5rem]">
+        <div className="font-bold text-2xl text-blue-950">
+          list of your recent Jobs
+        </div>
+        <div className="mt-[1rem] bg-white overflow-x-scroll">
+          <Table>
+            <TableCaption>A .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">Brand name</TableHead>
+                <TableHead>Jot title</TableHead>
+                <TableHead>Industry</TableHead>
+                <TableHead>Job type</TableHead>
+                <TableHead>Country</TableHead>
+                <TableHead>City</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Pay</TableHead>
+                <TableHead className="text-right">
+                  <DotsHorizontalIcon />
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {jobData.length < 1 ? (
+                <>
+                  {isLoading && (
+                    <div className="absolute top-0 left-0 w-[100%] h-screen bg-gray-500/5">
+                      <div className="w-[100%] h-[100%] flex justify-center items-center">
+                        <div className="flex justify-center items-center w-[10rem] h-[10rem]  rounded-md ">
+                          <InfinitySpin
+                            height="100"
+                            width="100"
+                            radius="9"
+                            color="green"
+                            ariaLabel="loading"
+                            wrapperStyle
+                            wrapperClass
+                          />
                         </div>
-                      ) : invoice.status === "Rejected" ? (
-                        <div className="py-1 px-3 rounded-sm text-red-600  font-semibold">
-                          {invoice.status}
-                        </div>
-                      ) : (
-                        <div className="py-1 px-3 rounded-sm text-red-100  font-semibold">
-                          Pending
-                        </div>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <CurrencySymbol amount={invoice.pay} />
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Button size="icon" variant="ghost">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger>
-                            <DotsHorizontalIcon />
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent>
-                            <DropdownMenuLabel>Action</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  {jobs?.map((invoice) => (
+                    <TableRow key={invoice.invoice}>
+                      <TableCell className="font-medium">
+                        {invoice.brandName}
+                      </TableCell>
+                      <TableCell>{invoice.title}</TableCell>
+                      <TableCell>{invoice.industry}</TableCell>
+                      <TableCell>{invoice.jobType}</TableCell>
+                      <TableCell>{invoice.country}</TableCell>
+                      <TableCell>{invoice.city}</TableCell>
+                      <TableCell>
+                        {invoice.status === "Approved" ? (
+                          <div className="py-1 px-3 rounded-sm text-green-600  font-semibold">
+                            {invoice.status}
+                          </div>
+                        ) : invoice.status === "Rejected" ? (
+                          <div className="py-1 px-3 rounded-sm text-red-600  font-semibold">
+                            {invoice.status}
+                          </div>
+                        ) : (
+                          <div className="py-1 px-3 rounded-sm text-red-100  font-semibold">
+                            Pending
+                          </div>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <CurrencySymbol amount={invoice.pay} />
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button size="icon" variant="ghost">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger>
+                              <DotsHorizontalIcon />
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                              <DropdownMenuLabel>Action</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
 
-                            {session?.user?.role === "ADMIN" ? (
-                              <Link
-                                href={{
-                                  pathname: "/admin/view",
-                                  query: {
-                                    itemId: invoice.id,
-                                  },
-                                }}
-                              >
-                                <DropdownMenuItem>View</DropdownMenuItem>
-                              </Link>
-                            ) : session?.user?.role === "VENDOR" ? (
-                              <Link
-                                href={{
-                                  pathname: "/vendor/view",
-                                  query: {
-                                    itemId: invoice.id,
-                                  },
-                                }}
-                              >
-                                <DropdownMenuItem>View</DropdownMenuItem>
-                              </Link>
-                            ) : (
-                              <div className="hidden"></div>
-                            )}
-                            {session?.user?.role === "VENDOR" ? (
-                              <Link
-                                href={{
-                                  pathname: "/vendor/edit",
-                                  query: {
-                                    itemId: invoice.id,
-                                  },
-                                }}
-                              >
-                                <DropdownMenuItem>Edit</DropdownMenuItem>
-                              </Link>
-                            ) : (
-                              <div className="hidden"></div>
-                            )}
+                              {session?.user?.role === "ADMIN" ? (
+                                <Link
+                                  href={{
+                                    pathname: "/admin/view",
+                                    query: {
+                                      itemId: invoice.id,
+                                    },
+                                  }}
+                                >
+                                  <DropdownMenuItem>View</DropdownMenuItem>
+                                </Link>
+                              ) : session?.user?.role === "VENDOR" ? (
+                                <Link
+                                  href={{
+                                    pathname: "/vendor/view",
+                                    query: {
+                                      itemId: invoice.id,
+                                    },
+                                  }}
+                                >
+                                  <DropdownMenuItem>View</DropdownMenuItem>
+                                </Link>
+                              ) : (
+                                <div className="hidden"></div>
+                              )}
+                              {session?.user?.role === "VENDOR" ? (
+                                <Link
+                                  href={{
+                                    pathname: "/vendor/edit",
+                                    query: {
+                                      itemId: invoice.id,
+                                    },
+                                  }}
+                                >
+                                  <DropdownMenuItem>Edit</DropdownMenuItem>
+                                </Link>
+                              ) : (
+                                <div className="hidden"></div>
+                              )}
 
-                            <DropdownMenuItem>
-                              <div
-                                className="text-red-500 font-semibold"
-                                onClick={() => handleIsDelete(invoice.id)}
-                              >
-                                Delete
-                              </div>
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              {/* <TableFooter>
+                              <DropdownMenuItem>
+                                <div
+                                  className="text-red-500 font-semibold"
+                                  onClick={() => handleIsDelete(invoice.id)}
+                                >
+                                  Delete
+                                </div>
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </>
+              )}
+            </TableBody>
+            {/* <TableFooter>
               <TableRow>
                 <TableCell colSpan={3}>Total</TableCell>
                 <TableCell className="text-right">$2,500.00</TableCell>
               </TableRow>
             </TableFooter> */}
-            </Table>
-          </div>
+          </Table>
         </div>
-      )}
+      </div>
+      {/* )} */}
 
       {/* //alert */}
 

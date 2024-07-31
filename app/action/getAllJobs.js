@@ -8,5 +8,6 @@ export const getAllJobs = async () => {
   if (!jobs) {
     console.log("No job found");
   }
+
   return jobs;
 };

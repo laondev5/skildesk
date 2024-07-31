@@ -41,7 +41,7 @@ export const authOptions = {
           if (!isMatch) {
             throw new Error("Incorrect password please try again");
           }
-          console.log(user);
+          //console.log(user);
           return { ...user, password: null, role: user.role };
         } catch (error) {
           throw new Error(error);

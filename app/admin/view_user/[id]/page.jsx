@@ -3,8 +3,9 @@ import { getUserData } from "@/app/action/getUserData";
 import UserProfile from "@/components/UserProfile";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-const page = async ({ searchParams }) => {
-  const userData = await getUserData(searchParams.itemId);
+const page = async ({ params }) => {
+  //console.log(params);
+  const userData = await getUserData(params?.id);
   const session = await getServerSession(authOptions);
   //console.log(userData);
   return (

@@ -166,10 +166,7 @@ const AdminUserTable = ({ users }) => {
                             ) : (
                               <Link
                                 href={{
-                                  pathname: "/admin/view_user",
-                                  query: {
-                                    itemId: invoice.id,
-                                  },
+                                  pathname: `/admin/view_user/${invoice.id}`,
                                 }}
                               >
                                 <DropdownMenuItem>View</DropdownMenuItem>

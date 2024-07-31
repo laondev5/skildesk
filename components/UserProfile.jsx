@@ -57,13 +57,23 @@ const UserProfile = ({ userData, session }) => {
         <div className="w-[90%] lg:w-[35%] border rounded-sm bg-white shadow-sm">
           <div className="w-[90%] mx-auto flex flex-col ">
             <div className="w-[8rem] h-[8rem] rounded-full border mb-4 ">
-              <Image
-                src={userData?.image}
-                alt="job logo"
-                width={90}
-                height={90}
-                className="w-[8rem] h-[8rem] rounded-full"
-              />
+              {userData.image ? (
+                <Image
+                  src={userData?.image}
+                  alt="job logo"
+                  width={90}
+                  height={90}
+                  className="w-[8rem] h-[8rem] rounded-full"
+                />
+              ) : (
+                <Image
+                  src="/profile1.svg"
+                  alt="job logo"
+                  width={90}
+                  height={90}
+                  className="w-[8rem] h-[8rem] rounded-full"
+                />
+              )}
             </div>
             {userData?.adminVerified === false ? (
               <div className="w-[3rem ] py-2 bg-red-100 text-white rounded-sm font-semibold pl-4">
@@ -86,15 +96,27 @@ const UserProfile = ({ userData, session }) => {
             <div className="my-2 pl-4 border ">
               <p className="text-gray-500 text-sm font-semibold my-1">
                 Brand name:{" "}
-                <span className="font-semibold text-orange-600">
-                  {userData?.industry}
-                </span>
+                {userData.brandName ? (
+                  <span className="font-semibold text-orange-600">
+                    {userData?.brandName}
+                  </span>
+                ) : (
+                  <span className="font-semibold text-orange-600">
+                    ********
+                  </span>
+                )}
               </p>
               <p className="text-gray-500 text-sm font-semibold my-1">
                 Industry:{" "}
-                <span className="font-semibold text-blue-950">
-                  {userData?.industry}
-                </span>
+                {userData.industry ? (
+                  <span className="font-semibold text-orange-600">
+                    {userData?.industry}
+                  </span>
+                ) : (
+                  <span className="font-semibold text-orange-600">
+                    ********
+                  </span>
+                )}
               </p>
             </div>
           </div>

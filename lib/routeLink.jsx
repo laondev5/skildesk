@@ -25,7 +25,8 @@ export const AdminRouteLink = [
   { label: "Dashboard", path: "/admin", icon: <LayoutDashboard /> },
   { label: "View user", path: "/admin/users", icon: <FilePlus /> },
   { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
-  { label: "Creat blog", path: "/admin/blog", icon: <NotebookPen /> },
+  { label: "Applicants", path: "/admin/applicant", icon: <Briefcase /> },
+  { label: "Create blog", path: "/admin/blog", icon: <NotebookPen /> },
   {
     label: "Newsletter Email",
     path: "/admin/newsletter",

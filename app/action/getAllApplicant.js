@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export const getAllApplicant = async () => {
   const applicant = await prisma.Applicant.findMany();
-  if (!user) {
+  if (!applicant) {
     console.log("No job found");
   }
   return applicant;

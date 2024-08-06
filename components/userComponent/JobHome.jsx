@@ -53,7 +53,7 @@ const JobHome = ({ jobData, userData }) => {
           </div>
         ) : (
           <div>
-            <NewJobDetails jobData={jobData} />
+            <NewJobDetails jobData={jobData} setIsOpen={setIsOpen} />
           </div>
         )}
       </div>

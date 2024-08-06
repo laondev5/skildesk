@@ -12,7 +12,7 @@ export default function HomePage({ session }) {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-5xl text-center lg:text-left font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-                    Find Your Perfect Match, Effortlessly
+                    Find Your Perfect Talent, Effortlessly
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Skildesk is your one-stop solution for all your recruitment

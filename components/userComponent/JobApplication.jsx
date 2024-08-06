@@ -48,7 +48,7 @@ const JobApplication = ({
       } else {
         //console.error("Error updating user:", result);
         toast.error("Failed to submit job application");
-
+        setIsApplicationFormOpen(true);
         return result;
       }
     } catch (error) {
@@ -238,7 +238,7 @@ const JobApplication = ({
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  Linkedin Profile (Optional){" "}
+                  Linkedin Profile
                 </Label>
                 <Input
                   type="url"
@@ -247,7 +247,7 @@ const JobApplication = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
-                  placeholder="Brand name"
+                  placeholder="Linkedin Profile"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
@@ -274,7 +274,7 @@ const JobApplication = ({
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
-                  placeholder="Brand name"
+                  placeholder="Portfolio Website"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>

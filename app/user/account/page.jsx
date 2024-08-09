@@ -2,7 +2,8 @@ import React from "react";
 import { getUserData } from "@/app/action/getUserData";
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/route";
+// import { authOptions } from "@/app/api/auth/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import AdminAccount from "@/components/adminComponent/AdminAccount";
 //import ImageUpload from "@/components/userComponent/ApplyJob";
 const page = async () => {

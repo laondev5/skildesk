@@ -4,7 +4,7 @@ import Home from "@/components/userComponent/Home";
 
 const page = async () => {
   const jobs = await getAllJobs();
-  console.log(jobs);
+  //console.log(jobs);
   return (
     <div>
       <Home jobs={jobs} />

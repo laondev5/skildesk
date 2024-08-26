@@ -7,18 +7,7 @@ import { useSession } from "next-auth/react";
 
 const UserViewBlogDetails = ({ blogs }) => {
   const { data: session } = useSession();
-  //const Router = useRouter();
-  //console.log(blogs);
-  //const createdAt = new Date(blogs?.createdAt);
-  // console.log(blogs?.createdAt);
-  //   const formattedDate = new Intl.DateTimeFormat("en-US", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //     hour: "2-digit",
-  //     minute: "2-digit",
-  //   }).format(blogs?.createdAt);
-  //   console.log(formattedDate);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-8 w-[100%] px-8">
       {blogs.map((blog, i) => (

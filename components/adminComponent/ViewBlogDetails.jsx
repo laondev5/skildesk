@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const ViewBlogDetails = ({ blog }) => {
-  console.log(blog);
+  // console.log(blog);
   return (
     <div className="w-full px-8">
       <div className="flex flex-col gap-4">

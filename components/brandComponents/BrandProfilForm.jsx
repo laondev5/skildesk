@@ -28,7 +28,7 @@ const BrandProfilForm = () => {
   const { data: session } = useSession();
   const userData = session?.user;
   const [isLoading, setIsLoading] = useState(false);
-  const Router = useRouter();
+
   const userId = userData?.id;
 
   const {

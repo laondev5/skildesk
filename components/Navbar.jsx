@@ -51,15 +51,13 @@ const Navbar = () => {
           <div className="hidden lg:flex space-x-4">
             <div className="flex space-x-4 mr-[2rem]">
               {navItem.map((route, i) => (
-                <Button key={i} asChild variant="ghost">
-                  <Link
-                    key={i}
-                    href={route.link}
-                    className="text-sm transition-colors font-medium"
-                  >
-                    {route.name}
-                  </Link>
-                </Button>
+                <Link
+                  key={i}
+                  href={route.link}
+                  className="text-sm transition-colors font-medium hover:bg-accent hover:text-accent-foreground py-2 px-4 rounded-md flex justify-center items-center"
+                >
+                  {route.name}
+                </Link>
               ))}
             </div>
             {session?.user ? (

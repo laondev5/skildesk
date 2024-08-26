@@ -30,7 +30,7 @@ export async function POST(request) {
       data: { password: hashPassword },
     });
     if (hashedPassword) {
-      console.log(hashedPassword);
+      //console.log(hashedPassword);
       return NextResponse.json({
         status: 200,
         message: "Password updated successfully",

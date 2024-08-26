@@ -190,7 +190,7 @@ export const columns = [
 ];
 
 const BrandContentTable = ({ jobs }) => {
-  console.log(jobs);
+  // console.log(jobs);
   const data = jobs;
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);

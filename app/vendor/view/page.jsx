@@ -7,7 +7,7 @@ const page = async ({ searchParams }) => {
   //console.log(searchParams.itemId);
   const jobData = await getJob(searchParams.itemId);
   const userData = await getUserData(jobData?.userId);
-  console.log(userData);
+  //console.log(userData);
   return (
     <div className="w-[95%] h-[600px] mx-auto">
       <ViewJob jobData={jobData} userData={userData} />

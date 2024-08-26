@@ -1,12 +1,14 @@
 import React from "react";
 import { getAllApplicant } from "@/app/action/getAllApplicant";
 import ApplicantTable from "@/components/adminComponent/ApplicantTable";
+import AdminApplicant from "@/components/adminComponent/AdminApllicant";
 
 const page = async () => {
-  const applicant = await getAllApplicant();
+  const applicants = await getAllApplicant();
   return (
     <div>
-      <ApplicantTable applicant={applicant} />
+      {/* <ApplicantTable applicant={applicant} /> */}
+      <AdminApplicant applicants={applicants} />
     </div>
   );
 };

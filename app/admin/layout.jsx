@@ -17,7 +17,7 @@ export default function AboutLayout({ children }) {
         <AdminNavbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
         <div className="flex relative">
           {/* desktop */}
-          <div className=" hidden lg:flex w-[20%] fixed top-0 left-0 h-screen bg-gray-950 ">
+          <div className=" hidden lg:flex w-[20%] fixed top-0 left-0 h-screen text-gray-950 border ">
             <AdminSideBar />
           </div>
           {/* mobile */}

@@ -38,18 +38,18 @@ const CreateTerms = () => {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("Terms & Condition created successfully:", result);
+        // console.log("Terms & Condition created successfully:", result);
         toast.success("Terms & Condition created successfully");
 
         return result;
       } else {
-        console.error("Error creating Terms & Condition", result);
+        // console.error("Error creating Terms & Condition", result);
         toast.error("Failed to create Terms & Condition");
 
         return result;
       }
     } catch (error) {
-      console.error("Error creating Terms & Condition", error);
+      // console.error("Error creating Terms & Condition", error);
       toast.error("Failed to create Terms & Condition");
     }
   };
@@ -60,11 +60,11 @@ const CreateTerms = () => {
     try {
       const res = await createTerms(content);
       if (!res) {
-        console.log("error");
+        // console.log("error");
       }
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setIsLoading(false);
     }
   };

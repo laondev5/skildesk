@@ -11,8 +11,8 @@ const page = async ({ params }) => {
   //console.log(params);
   const jobData = await getJob(params.jobId);
   const userData = await getUserData(session?.user?.id);
-  console.log(jobData);
-  console.log(userData);
+  //console.log(jobData);
+  //console.log(userData);
 
   return (
     <div>

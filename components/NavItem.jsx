@@ -6,7 +6,7 @@ import { LayoutDashboard, FilePlus } from "lucide-react";
 const NavItem = ({ label, routPath, icon }) => {
   const pathname = usePathname();
   //   const isActive = pathname === routPath;
-  console.log(pathname, routPath);
+  // console.log(pathname, routPath);
   return (
     <div
       key={1}

@@ -37,11 +37,11 @@ export const updateUser = async (userId, data) => {
     });
     if (!userProfile) {
       const message = `Error updating user`;
-      console.log(message);
+      //console.log(message);
       return message;
     } else {
       const message = `User updated successfully`;
-      console.log(message, userProfile);
+      // console.log(message, userProfile);
       return userProfile;
     }
   } catch (error) {

@@ -64,12 +64,12 @@ const BrandDataTable = ({ jobs }) => {
     setDeleteData(id);
     setIsDelete(true);
   };
-  console.log(jobData);
+  // console.log(jobData);
   useEffect(() => {
     setIsLoading(true);
     const jobsData = async () => {
       const res = await getAllJobs();
-      console.log(res);
+      // console.log(res);
       if (res) {
         setJobData(res);
       }
@@ -92,7 +92,7 @@ const BrandDataTable = ({ jobs }) => {
   };
 
   const handleEdit = (id) => {
-    console.log(id);
+    // console.log(id);
     router.push(`/edit/${id}`);
     // const jobId = {
     //   itemId: id,

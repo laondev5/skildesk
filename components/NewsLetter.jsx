@@ -31,7 +31,7 @@ export default function NewsLetter() {
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     //send data to server
     const response = await fetch("/api/newsletter", {
       method: "POST",

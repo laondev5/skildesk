@@ -10,7 +10,6 @@ import {
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from "sonner";
-import { InfinitySpin } from "react-loader-spinner";
 
 const VerificationCode = ({ userId }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -100,15 +99,7 @@ const VerificationCode = ({ userId }) => {
         </div>
         <Button>
           {isLoading ? (
-            <InfinitySpin
-              height="100"
-              width="100"
-              radius="9"
-              color="green"
-              ariaLabel="loading"
-              wrapperStyle
-              wrapperClass
-            />
+            <div className="loading-animation">Loading...</div>
           ) : (
             "Verify and Continue"
           )}

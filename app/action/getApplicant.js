@@ -12,7 +12,7 @@ export const getApplicant = async (userId) => {
         userId: userId,
       },
     });
-    console.log("my applicant", applicant);
+    //console.log("my applicant", applicant);
     return applicant;
   } catch (error) {
     console.log(error);

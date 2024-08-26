@@ -9,6 +9,11 @@ import {
   Target,
   MessageCircleWarning,
   Dock,
+  SquareUserRound,
+  ScanEye,
+  FileQuestion,
+  Mail,
+  MessageCircleMore,
 } from "lucide-react";
 
 //import { signOut } from "next-auth/react";
@@ -25,14 +30,21 @@ export const RouteLink = [
 
 export const AdminRouteLink = [
   { label: "Dashboard", path: "/admin", icon: <LayoutDashboard /> },
-  { label: "View user", path: "/admin/users", icon: <FilePlus /> },
-  { label: "Jobs", path: "/admin/jobs", icon: <Briefcase /> },
+  { label: "View user", path: "/admin/users", icon: <SquareUserRound /> },
+  { label: "Create job", path: "/admin/jobs", icon: <FilePlus /> },
   { label: "Applicants", path: "/admin/applicant", icon: <Briefcase /> },
   { label: "Create blog", path: "/admin/blog", icon: <NotebookPen /> },
+  { label: "View jobs", path: "/admin/view_job", icon: <ScanEye /> },
+  { label: "Message", path: "/admin/message", icon: <MessageCircleMore /> },
+  {
+    label: "Schedule interview",
+    path: "/admin/interview",
+    icon: <FileQuestion />,
+  },
   {
     label: "Newsletter Email",
     path: "/admin/newsletter",
-    icon: <NotebookPen />,
+    icon: <Mail />,
   },
 ];
 

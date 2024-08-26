@@ -6,7 +6,7 @@ import React from "react";
 
 const page = async ({ searchParams }) => {
   const blog = await getBlog(searchParams.itemId);
-  console.log(blog);
+  //console.log(blog);
   return (
     <div>
       <Navbar />

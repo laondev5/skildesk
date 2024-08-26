@@ -4,14 +4,38 @@ import { getAllJobs } from "../action/getAllJobs";
 import BrandDataTable from "@/components/brandComponents/BrandDataTable";
 import Image from "next/image";
 import Card from "@/components/Card";
+import AdminHome from "@/components/adminComponent/AdminHome";
+import { getAllApplicant } from "../action/getAllApplicant";
+import { cookies } from "next/headers";
 
-const page = async () => {
-  const jobs = await getAllJobs();
-  //console.log(jobs);
+export const getJobs = async () => {
+  try {
+    const res = await getAllJobs();
+    // console.log(res);
+    return res;
+  } catch (error) {
+    // console.log(error);
+  }
+};
+
+export const getApplicants = async () => {
+  try {
+    const res = await getAllApplicant();
+    //console.log(res);
+    return res;
+  } catch (error) {
+    //console.log(error);
+  }
+};
+export const page = async () => {
+  cookies();
+  const [jobs, applicants] = await Promise.all([getJobs(), getApplicants()]);
+  // const jobs = await getAllJobs();
+  //console.log("jobs", jobs, "applicants", applicants);
 
   return (
     <div className="py-2">
-      <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-3 gap-4">
+      {/* <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-3 gap-4">
         <Card>
           <div className="flex flex-col  w-full ">
             <div className="w-[4rem] h-[4rem] border rounded-sm flex justify-center items-center">
@@ -69,9 +93,11 @@ const page = async () => {
             </div>
           </div>
         </Card>
-      </div>
+      </div> */}
       {/* <BrandDataTable /> */}
-      <BrandDataTable jobs={jobs} />
+      {/* <BrandDataTable jobs={jobs} /> */}
+
+      <AdminHome jobs={jobs} applicants={applicants} />
     </div>
   );
 };

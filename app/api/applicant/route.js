@@ -19,19 +19,13 @@ export async function POST(request) {
         jobId: data.jobId,
         userId: data.userId,
         status: data.status,
+        role: data.role,
+        interview: "applied",
       },
     });
 
-    const applicantJob = await prisma.jobs.update({
-      where: {
-        id: data.jobId,
-      },
-      data: {
-        applicantId: data.userId,
-      },
-    });
     //console.log(job);
-    if (!job || !applicantJob) {
+    if (!job) {
       return NextResponse.json({
         status: 400,
         message: "Failed to create job",

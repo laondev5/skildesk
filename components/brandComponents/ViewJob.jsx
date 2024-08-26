@@ -18,8 +18,8 @@ const status = {
 const ViewJob = ({ jobData, userData }) => {
   //console.log(jobData);
   //console.log(userData);
-  const firstTwoChar = userData?.email?.substring(0, 2);
-  const [amount, setAmount] = useState("");
+  //const firstTwoChar = userData?.email?.substring(0, 2);
+  //const [amount, setAmount] = useState("");
   const { data: session } = useSession();
   const Router = useRouter();
 

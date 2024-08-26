@@ -1,12 +1,10 @@
-import Container from "@/components/Container";
-import { Button } from "@/components/ui/button";
 import "./globals.css";
-import Image from "next/image";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+
 import { getServerSession } from "next-auth/next";
-// import { authOptions } from "@/app/(auth)/api/auth/[...nextauth]/route";
+import Head from "next/head";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NewsLetter from "@/components/NewsLetter";
 import HomePage from "@/components/HomePage";

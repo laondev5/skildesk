@@ -7,6 +7,6 @@ export const getUserData = async (id) => {
   const userData = await prisma.User.findUnique({
     where: { id },
   });
-  console.log(userData);
+  //console.log(userData);
   return userData;
 };

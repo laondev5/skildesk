@@ -22,7 +22,7 @@ import {
 import Link from "next/link";
 
 const MyApplication = ({ applicant }) => {
-  console.log(applicant);
+  // console.log(applicant);
   return (
     <div className="w-full py-8 px-8">
       <h2 className="font-semibold text-2xl">List of all the job Applicants</h2>

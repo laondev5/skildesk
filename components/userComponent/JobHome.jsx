@@ -7,7 +7,7 @@ import JobApplication from "./JobApplication";
 import ImageUpload from "./ApplyJob";
 
 const JobHome = ({ jobData, userData }) => {
-  console.log(jobData);
+  // console.log(jobData);
   const [isOpen, setIsOpen] = useState(false);
   const [isApplicationFormOpen, setIsApplicationFormOpen] = useState(false);
   return (

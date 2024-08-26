@@ -20,6 +20,7 @@ const JobApplication = ({
   const [isLoading, setIsLoading] = useState(false);
   const userId = userData?.id;
   const jobId = jobData?.id;
+  const role = jobData.title;
   const {
     register,
     handleSubmit,
@@ -76,6 +77,7 @@ const JobApplication = ({
           status: "pending",
           userId: userId,
           jobId: jobId,
+          role: role,
         };
         createApplication(brandData);
       }

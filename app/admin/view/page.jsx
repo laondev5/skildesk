@@ -3,6 +3,7 @@ import ViewJob from "@/components/brandComponents/ViewJob";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { getUserData } from "@/app/action/getUserData";
+import { AdminDeleteJobs } from "@/components/adminComponent/AdminDeleteJobs";
 
 const page = async ({ searchParams }) => {
   //console.log(searchParams.itemId);
@@ -14,6 +15,7 @@ const page = async ({ searchParams }) => {
   return (
     <div className="w-[95%] h-[600px] mx-auto">
       <ViewJob jobData={jobData} userData={userData} />
+      {/* <AdminDeleteJobs /> */}
     </div>
   );
 };

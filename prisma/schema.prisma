@@ -56,8 +56,44 @@ model User {
   terms                    Terms[]
 }
 
+// model User {
+//   id                       Int      @id @default(au)
+//   name                     String?
+//   email                    String?     @unique
+//   emailVerified            Boolean     @default(false)
+//   emailVerifiedDate        DateTime?
+//   verificationRequestCount Int?
+//   verificationToken        String?
+//   forgetPasswordToken      String?
+//   password                 String?
+//   role                     Role        @default(USER)
+//   status                   String?
+//   completed                String?
+//   description              String?
+//   industry                 String?
+//   brandName                String?
+//   country                  String?
+//   city                     String?
+//   state                    String?
+//   zip                      String?
+//   phoneNumber              String?
+//   website                  String?
+//   image                    String?
+//   address                  String?
+//   proveOfAddre             String?
+//   businessReg              String?
+//   idCard                   String?
+//   taxReg                   String?
+//   adminVerified            Boolean     @default(false)
+//   jobs                     Jobs[]
+//   blogs                    Blogs[]
+//   applicant                Applicant[]
+//   comment                  Comment[]
+//   terms                    Terms[]
+// }
+
 model Jobs {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   brandName   String
   title       String
   Description String
@@ -66,13 +102,15 @@ model Jobs {
   country     String
   pay         Int
   status      String
-  applicantId String?    @db.ObjectId
-  applicant   Applicant? @relation(fields: [applicantId], references: [id], onDelete: Cascade)
+  interview   String?     @default("pending")
+  applicant   Applicant[]
   city        String
   coverImage  String
   webUrl      String
-  userId      String     @db.ObjectId
-  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime?   @default(now())
+  updatedAt   DateTime?   @updatedAt
+  userId      String      @db.ObjectId
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Blogs {
@@ -107,13 +145,15 @@ model Applicant {
   name        String?
   email       String?
   linkedin    String?
+  role        String?
   portfolio   String?
   video       String?
   createdAt   DateTime? @default(now())
   updatedAt   DateTime? @updatedAt
   userId      String    @db.ObjectId
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job         Jobs[]
+  jobId       String    @db.ObjectId
+  job         Jobs      @relation(fields: [jobId], references: [id], onDelete: Cascade)
 }
 
 model Terms {

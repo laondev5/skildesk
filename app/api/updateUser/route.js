@@ -56,7 +56,7 @@ export async function POST(request) {
       //return res.status(404).json({ error: message });
     } else {
       const message = "User updated successfully";
-      console.log(message, userProfile);
+      //console.log(message, userProfile);
       return NextResponse.json(userProfile);
     }
   } catch (error) {

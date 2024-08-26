@@ -11,9 +11,9 @@ const verificationStatus = {
   verified: true,
 };
 const UserProfile = ({ userData, session }) => {
-  console.log(userData);
+  // console.log(userData);
   //const { data: session } = useSession();
-  console.log(session?.user);
+  // console.log(session?.user);
   const Router = useRouter();
   const handleApprove = async () => {
     const res = await updateUserStatus(

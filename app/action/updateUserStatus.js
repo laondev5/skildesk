@@ -12,7 +12,7 @@ export const updateUserStatus = async (id, status) => {
         adminVerified: status,
       },
     });
-    console.log(userStatus);
+    // console.log(userStatus);
     return userStatus;
   } catch (error) {
     const message = `Error updating user`;

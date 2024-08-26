@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 
 const ViewBlog = ({ blogs }) => {
   const { data: session } = useSession();
-  console.log(blogs);
+  // console.log(blogs);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-8 w-[100%] px-8">
       {blogs.map((blog, i) => (
@@ -33,7 +33,7 @@ const ViewBlog = ({ blogs }) => {
             <div className="mt-4">
               <h3 className="text-lg font-bold">{blog.title}</h3>
               <div
-                className="w-[90%] ProseMirror whitespace-pre-line  "
+                className="w-[90%] ProseMirror whitespace-pre-line text-ellipsis overflow-hidden "
                 dangerouslySetInnerHTML={{ __html: blog.description }}
               />
               <div className="flex w-[100%] justify-between items-center">

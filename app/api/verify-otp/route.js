@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   const body = await request.json();
   const { otpData } = body;
-  console.log(otpData);
+  //console.log(otpData);
   try {
     const user = await prisma.User.findUnique({
       where: { id: otpData.id },

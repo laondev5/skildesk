@@ -10,10 +10,10 @@ const page = async () => {
   if (!session) {
     console.log("no user session found");
   } else {
-    console.log(session);
+    //console.log(session);
   }
   const applicant = await getApplicant(session.user.id);
-  console.log(applicant);
+  //console.log(applicant);
 
   return (
     <div>

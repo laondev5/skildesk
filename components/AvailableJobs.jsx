@@ -5,7 +5,7 @@ import CurrencySymbol from "@/lib/CurrencySymbol";
 import { Button } from "./ui/button";
 
 const AvailableJobs = ({ jobs }) => {
-  console.log(jobs);
+  // console.log(jobs);
   return (
     <div className="w-[90%] mx-auto flex flex-col justify-center items-center">
       {jobs.map((job, i) => (

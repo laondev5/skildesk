@@ -9,7 +9,7 @@ import AdminAccount from "@/components/adminComponent/AdminAccount";
 const page = async () => {
   const session = await getServerSession(authOptions);
   const userData = await getUserData(session?.user?.id);
-  console.log(userData);
+  //console.log(userData);
 
   return (
     <div>

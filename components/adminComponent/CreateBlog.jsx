@@ -32,7 +32,7 @@ const CreateBlog = () => {
   const { data: session } = useSession();
   const userData = session?.user;
   const userId = userData?.id;
-  console.log();
+  //console.log();
 
   const createTask = async (userId, data) => {
     try {
@@ -46,23 +46,23 @@ const CreateBlog = () => {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("Blog created successfully:", result);
+        // console.log("Blog created successfully:", result);
         toast.success("Blog created successfully");
 
         return result;
       } else {
-        console.error("Error creating blog:", result);
+        //console.error("Error creating blog:", result);
         toast.error("Failed to create Blog");
 
         return result;
       }
     } catch (error) {
-      console.error("Error creating blog:", error);
+      // console.error("Error creating blog:", error);
       toast.error("Failed to create Blog");
     }
   };
   const onSubmit = async (data) => {
-    console.log(data);
+    //console.log(data);
     setIsLoading(true);
 
     const rawImage = data?.file[0];

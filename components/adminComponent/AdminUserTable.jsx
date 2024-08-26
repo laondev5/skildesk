@@ -64,7 +64,7 @@ const AdminUserTable = ({ users }) => {
   };
 
   const handleEdit = (id) => {
-    console.log(id);
+    //console.log(id);
     router.push(`/edit/${id}`);
     // const jobId = {
     //   itemId: id,

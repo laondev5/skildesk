@@ -1,9 +1,9 @@
 "use client";
-
+import * as React from "react";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { CalendarIcon } from "lucide-react";
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 import {
   Card,
   CardContent,
@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "../ui/card";
 import { Label } from "../ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+//import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import {
   Select,
@@ -24,9 +24,12 @@ import {
 import { Input } from "../ui/input";
 import { Calendar } from "../ui/calendar";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { cn } from "@/lib/utils";
+import { InfinitySpin } from "react-loader-spinner";
 
-export default function InterviewForm() {
-  const [date, setDate] = useState();
+export default function InterviewForm({ applicantDetail }) {
+  const [loading, setLoading] = useState(false);
+  console.log(applicantDetail);
   const {
     control,
     handleSubmit,
@@ -37,11 +40,40 @@ export default function InterviewForm() {
       email: "",
       time: "",
       interviewType: "phone",
+      date: "",
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Form data:", { ...data, date });
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const interviewData = {
+      ...data,
+      role: applicantDetail.role,
+      applicantId: applicantDetail.id,
+      jobId: applicantDetail.jobId,
+      userId: applicantDetail.userId,
+      status: "pending",
+      result: "pending",
+    };
+    console.log("Form data:", interviewData);
+    const res = await fetch("/api/interview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ interviewData }),
+    });
+
+    if (!res) {
+      console.error("Error scheduling interview:", res);
+      setLoading(false);
+      return;
+    } else {
+      const result = await res.json();
+      console.log("Interview scheduled successfully:", result);
+      setLoading(false);
+      alert("Interview scheduled successfully!");
+    }
   };
 
   return (
@@ -95,27 +127,25 @@ export default function InterviewForm() {
           </div>
           <div className="space-y-2">
             <Label>Preferred Date</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={`w-full justify-start text-left font-normal ${
-                    !date && "text-muted-foreground"
-                  }`}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "PPP") : "Pick a date"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  initialFocus
+
+            <Controller
+              name="date"
+              control={control}
+              rules={{
+                required: "Date is required",
+                pattern: {
+                  message: "Invalid Date",
+                },
+              }}
+              render={({ field }) => (
+                <Input
+                  id="date"
+                  type="date"
+                  placeholder="Pick a date"
+                  {...field}
                 />
-              </PopoverContent>
-            </Popover>
+              )}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="time">Preferred Time</Label>
@@ -177,7 +207,7 @@ export default function InterviewForm() {
             )}
           </div>
           <Button type="submit" className="w-full">
-            Schedule Interview
+            {loading ? <InfinitySpin color="#212121" /> : "Schedule Interview"}
           </Button>
         </form>
       </CardContent>

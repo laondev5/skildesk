@@ -3,17 +3,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 export const uploadVideo = async (jobId, video) => {
-  //const { status } = data;
-
+  // const { status } = data;
+  //console.log(jobId, video);
   try {
-    const jobStatus = await prisma.Jobs.update({
-      where: { jobId: jobId },
+    const applicantStatus = await prisma.Applicant.update({
+      where: { id: jobId },
       data: {
         video: video,
       },
     });
-    //console.log(jobStatus);
-    return jobStatus;
+    //console.log(applicantStatus);
+    return applicantStatus;
   } catch (error) {
     const message = `Error updating user`;
     return message;

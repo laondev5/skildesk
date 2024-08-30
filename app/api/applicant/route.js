@@ -24,7 +24,7 @@ export async function POST(request) {
       },
     });
 
-    //console.log(job);
+    console.log(job);
     if (!job) {
       return NextResponse.json({
         status: 400,
@@ -34,6 +34,7 @@ export async function POST(request) {
       return NextResponse.json({
         status: 200,
         message: "Job created successfully",
+        job,
       });
     }
     //return job;

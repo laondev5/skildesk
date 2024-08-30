@@ -24,6 +24,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AdminApplicant({ applicants }) {
   const interviewed = applicants?.filter(
@@ -144,7 +145,12 @@ export default function AdminApplicant({ applicants }) {
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuItem>View Profile</DropdownMenuItem>
+                            <Link href={`/admin/applicant/${item.id}`}>
+                              <DropdownMenuItem>
+                                View Applicant
+                              </DropdownMenuItem>
+                            </Link>
+
                             <DropdownMenuItem>
                               Schedule Interview
                             </DropdownMenuItem>

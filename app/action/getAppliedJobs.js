@@ -4,12 +4,12 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getApplicant = async (applicantId) => {
+export const getAppliedJob = async (applicantId) => {
   console.log(applicantId);
   try {
-    const applicantJobs = await prisma.jobs.findMany({
+    const applicantJobs = await prisma.Applicant.findUnique({
       where: {
-        applicantId: applicantId,
+        id: applicantId,
       },
     });
     //console.log("my applicant", applicant);

@@ -37,7 +37,7 @@ export const AdminRouteLink = [
   { label: "View jobs", path: "/admin/view_job", icon: <ScanEye /> },
   { label: "Message", path: "/admin/message", icon: <MessageCircleMore /> },
   {
-    label: "Schedule interview",
+    label: "interview",
     path: "/admin/interview",
     icon: <FileQuestion />,
   },

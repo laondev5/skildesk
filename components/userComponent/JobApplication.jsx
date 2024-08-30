@@ -10,6 +10,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { nullable } from "zod";
 
 const JobApplication = ({
   jobData,
@@ -18,6 +19,7 @@ const JobApplication = ({
   setIsApplicationFormOpen,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [applicantId, setApplicantId] = useState(nullable);
   const userId = userData?.id;
   const jobId = jobData?.id;
   const role = jobData.title;
@@ -41,10 +43,12 @@ const JobApplication = ({
       });
 
       const result = await response.json();
+      console.log(result);
       if (response.ok) {
         //.log("Job application submitted  successfully", result);
+        setApplicantId(result.job?.id);
         toast.success("Job application submitted  successfully");
-        route.push(`/user/video/${jobId}`);
+        route.push(`/user/video/${result.job?.id}`);
         return result;
       } else {
         //console.error("Error updating user:", result);

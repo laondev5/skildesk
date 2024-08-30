@@ -1,10 +1,12 @@
+import { getAllInterview } from "@/app/action/getAllInterviews";
 import AdminInterview from "@/components/adminComponent/AdminInterview";
 import React from "react";
 
-const page = () => {
+const page = async () => {
+  const interviews = await getAllInterview();
   return (
     <div className="w-[90%]">
-      <AdminInterview />
+      <AdminInterview interviews={interviews} />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { uploadVideo } from "@/app/action/uploadVideo";
 import { getVideoFileSize } from "@/lib/VideoSize";
+import { CldUploadWidget } from "next-cloudinary";
 const ImageUpload = ({ jobId }) => {
   const [file, setFile] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -50,8 +51,9 @@ const ImageUpload = ({ jobId }) => {
         toast.error("Failed to upload image to cloud");
       }
       const imageData = await response.json();
-      //console.log("Image uploaded:", imageData);
-      const video = imageData?.playback_url;
+      console.log("video uploaded:", imageData);
+      const video = imageData?.url;
+      console.log(video);
       const res = await uploadVideo(jobId, video);
       if (!res) {
         toast.error("Failed to upload video");

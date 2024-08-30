@@ -54,8 +54,8 @@ export async function POST(request) {
         to: interviewData.email,
         subject: "Skildesk",
         html: `
-        <div style="width:400px; border:solid 1px gray; border-radius: 10px">
-        <div style="background:blue; display:flex; justify-content: center; align-items:center; border-radius: 10px">
+        <div style="width:400px; border:solid 1px gray; ">
+        <div style="background:blue; display:flex; justify-content: center; align-items:center; ">
         <h3 style=" font-size: 20px; color:white; text-align:center;">Interview Scheduled for</h3>
         </div>
         <h4 style="font-size:18px text-align:center">${subject}</h4>

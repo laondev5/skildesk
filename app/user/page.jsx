@@ -12,12 +12,12 @@ const page = async () => {
   } else {
     //console.log(session);
   }
-  // const applicant = await getApplicant(session.user.id);
+  const applicant = await getApplicant(session.user.id);
 
   return (
     <div>
       {/* <UserDashboard applicant={applicant} /> */}
-      <NewUserDashboard />
+      <NewUserDashboard applicant={applicant} />
     </div>
   );
 };

@@ -47,7 +47,7 @@ export default function AdminViewApplicant({ applicantDetail }) {
 
   const handleScheduleInterview = () => {
     // Implement interview scheduling logic here
-    console.log("Scheduling interview for", applicant.name);
+    //console.log("Scheduling interview for", applicant.name);
   };
 
   const handleRejectApplicant = () => {

@@ -35,117 +35,27 @@ import {
 } from "@/components/ui/chart";
 import { Pie, PieChart, CartesianGrid, XAxis, Line, LineChart } from "recharts";
 
-export default function NewUserDashboard() {
+export default function NewUserDashboard({ applicant }) {
+  const interviewed = applicant?.filter(
+    (item) => item.status === "interviewed"
+  );
+  const offered = applicant?.filter((item) => item.status === "offered");
+  const rejected = applicant?.filter((item) => item.status === "rejected");
+  const pending = applicant?.filter((item) => item.status === "pending");
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
-      {/* <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <Package2Icon className="h-6 w-6" />
-          <span className="text-lg font-bold">Acme Hiring</span>
-        </Link>
-        <div className="ml-auto flex items-center gap-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
-                <I
-                  src="/placeholder.svg"
-                  width={36}
-                  height={36}
-                  alt="Avatar"
-                  className="overflow-hidden rounded-full"
-                  style={{ aspectRatio: "36/36", objectFit: "cover" }}
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </header> */}
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        {/* <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
-          <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
-            <TooltipProvider>
-              <Link
-                href="#"
-                className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
-                prefetch={false}
-              >
-                <Package2Icon className="h-4 w-4 transition-all group-hover:scale-110" />
-                <span className="sr-only">Acme Hiring</span>
-              </Link>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                    prefetch={false}
-                  >
-                    <UsersIcon className="h-5 w-5" />
-                    <span className="sr-only">Applicants</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">Applicants</TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                    prefetch={false}
-                  >
-                    <BriefcaseIcon className="h-5 w-5" />
-                    <span className="sr-only">Jobs</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">Jobs</TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                    prefetch={false}
-                  >
-                    <CalendarIcon className="h-5 w-5" />
-                    <span className="sr-only">Calendar</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">Calendar</TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                    prefetch={false}
-                  >
-                    <SettingsIcon className="h-5 w-5" />
-                    <span className="sr-only">Settings</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">Settings</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </nav>
-        </aside> */}
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Total Applicants
+                  Total Applications
                 </CardTitle>
                 <UsersIcon className="w-4 h-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">2,350</div>
+                <div className="text-2xl font-bold">{applicant?.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +180.1% from last month
                 </p>
@@ -159,7 +69,7 @@ export default function NewUserDashboard() {
                 <ClockIcon className="w-4 h-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">1,234</div>
+                <div className="text-2xl font-bold">{pending?.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +19% from last month
                 </p>
@@ -173,7 +83,7 @@ export default function NewUserDashboard() {
                 <CalendarIcon className="w-4 h-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">573</div>
+                <div className="text-2xl font-bold">{interviewed?.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +201 since last month
                 </p>
@@ -187,7 +97,7 @@ export default function NewUserDashboard() {
                 <BriefcaseIcon className="w-4 h-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">125</div>
+                <div className="text-2xl font-bold">{offered?.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +20.1% from last month
                 </p>
@@ -220,21 +130,27 @@ export default function NewUserDashboard() {
                       <ClockIcon className="w-4 h-4" />
                     </div>
                     <div className="text-sm font-medium">Pending</div>
-                    <div className="text-xs text-muted-foreground">1,234</div>
+                    <div className="text-xs text-muted-foreground">
+                      {pending?.length}
+                    </div>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <div className="h-8 w-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center">
                       <CalendarIcon className="w-4 h-4" />
                     </div>
                     <div className="text-sm font-medium">Interviewed</div>
-                    <div className="text-xs text-muted-foreground">573</div>
+                    <div className="text-xs text-muted-foreground">
+                      {interviewed?.length}
+                    </div>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <div className="h-8 w-8 rounded-full bg-success text-success-foreground flex items-center justify-center">
                       <BriefcaseIcon className="w-4 h-4" />
                     </div>
                     <div className="text-sm font-medium">Hired</div>
-                    <div className="text-xs text-muted-foreground">125</div>
+                    <div className="text-xs text-muted-foreground">
+                      {offered?.length}
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -340,31 +256,49 @@ export default function NewUserDashboard() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  <TableRow>
-                    <TableCell>
-                      <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                          <UserIcon className="h-5 w-5 text-muted-foreground" />
-                        </div>
-                        <div>
-                          <div className="font-medium">John Doe</div>
-                          <div className="text-sm text-muted-foreground">
-                            john.doe@example.com
+                  {applicant.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        <div className="flex items-center gap-3">
+                          <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
+                            <UserIcon className="h-5 w-5 text-muted-foreground" />
+                          </div>
+                          <div>
+                            <div className="font-medium">{item?.name}</div>
+                            <div className="text-sm text-muted-foreground">
+                              {item?.email}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden sm:table-cell">
-                      Software Engineer
-                    </TableCell>
-                    <TableCell className="hidden sm:table-cell">
-                      <Badge variant="secondary">Pending</Badge>
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      2023-06-23
-                    </TableCell>
-                    <TableCell className="text-right" />
-                  </TableRow>
+                      </TableCell>
+                      <TableCell className="hidden sm:table-cell">
+                        {item?.role}
+                      </TableCell>
+                      <TableCell className="hidden sm:table-cell">
+                        {item.status === "pending" ? (
+                          <TableCell>
+                            <Badge variant="secondary">Pending</Badge>
+                          </TableCell>
+                        ) : item.status === "scheduled" ? (
+                          <TableCell>
+                            <Badge variant="secondary">Scheduled</Badge>
+                          </TableCell>
+                        ) : item.status === "interviewed" ? (
+                          <TableCell>
+                            <Badge variant="secondary">Interviewed</Badge>
+                          </TableCell>
+                        ) : (
+                          <TableCell>
+                            <Badge variant="secondary">Rejected</Badge>
+                          </TableCell>
+                        )}
+                      </TableCell>
+                      <TableCell className="hidden md:table-cell">
+                        {new Date(item.createdAt).toLocaleDateString()}
+                      </TableCell>
+                      <TableCell className="text-right" />
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </CardContent>

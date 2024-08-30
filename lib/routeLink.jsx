@@ -52,9 +52,9 @@ export const UserRouteLink = [
   { label: "Dashboard", path: "/user", icon: <LayoutDashboard /> },
   { label: " Find Work", path: "/user/work", icon: <FilePlus /> },
   { label: "My Jobs", path: "/user/jobs", icon: <Briefcase /> },
-  { label: "My Activity", path: "/user/activity", icon: <Target /> },
+  // { label: "My Activity", path: "/user/activity", icon: <Target /> },
   { label: " Messages", path: "/user/message", icon: <Send /> },
-  { label: "Reports", path: "/user/report", icon: <MessageCircleWarning /> },
+  // { label: "Reports", path: "/user/report", icon: <MessageCircleWarning /> },
 ];
 
 // export const BrandSupLink = [

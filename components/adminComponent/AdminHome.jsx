@@ -133,7 +133,7 @@ export default function AdminHome({ jobs, applicants }) {
                     Applications
                   </div>
                 </div>
-                <div className="bg-accent/10 rounded-lg p-4 text-center">
+                <div className="bg-accent/10 rounded-lg p-4 text-center bg-orange-200">
                   <div className="text-4xl font-bold text-accent">
                     {interviewed?.length}
                   </div>
@@ -141,13 +141,13 @@ export default function AdminHome({ jobs, applicants }) {
                     Interviews
                   </div>
                 </div>
-                <div className="bg-success/10 rounded-lg p-4 text-center">
+                <div className="bg-success/10 rounded-lg p-4 text-center bg-green-200">
                   <div className="text-4xl font-bold text-success">
                     {offered?.length}
                   </div>
                   <div className="text-sm text-muted-foreground">Offers</div>
                 </div>
-                <div className="bg-warning/10 rounded-lg p-4 text-center">
+                <div className="bg-warning/10 rounded-lg p-4 text-center bg-red-200">
                   <div className="text-4xl font-bold text-warning">
                     {rejected?.length}
                   </div>
@@ -209,19 +209,27 @@ export default function AdminHome({ jobs, applicants }) {
                       <TableCell>{item.role}</TableCell>
                       {item.status === "pending" ? (
                         <TableCell>
-                          <Badge variant="secondary">Pending</Badge>
+                          <Badge variant="secondary" className="bg-orange-200">
+                            Pending
+                          </Badge>
                         </TableCell>
                       ) : item.status === "scheduled" ? (
                         <TableCell>
-                          <Badge variant="secondary">Scheduled</Badge>
+                          <Badge variant="secondary" className="bg-blue-200">
+                            Scheduled
+                          </Badge>
                         </TableCell>
                       ) : item.status === "interviewed" ? (
                         <TableCell>
-                          <Badge variant="secondary">Interviewed</Badge>
+                          <Badge variant="secondary" className="bg-green-200">
+                            Interviewed
+                          </Badge>
                         </TableCell>
                       ) : (
                         <TableCell>
-                          <Badge variant="secondary">Rejected</Badge>
+                          <Badge variant="secondary" className="bg-red-200">
+                            Rejected
+                          </Badge>
                         </TableCell>
                       )}
 
@@ -255,11 +263,11 @@ export default function AdminHome({ jobs, applicants }) {
                   </div>
                 </div>
                 <div className="bg-accent/10 rounded-lg p-4 text-center">
-                  <div className="text-4xl font-bold text-accent">
+                  <div className="text-4xl font-bold text-primary">
                     {availableJobs?.length}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Availability
+                    Available Jobs
                   </div>
                 </div>
               </div>

@@ -44,7 +44,7 @@ export default function AdminApplicant({ applicants }) {
       </header>
       <main className="flex-1 container max-w-6xl mx-auto px-4 py-8 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card>
+          <Card className="bg-gray-200">
             <CardHeader>
               <CardTitle>Total Applicants</CardTitle>
             </CardHeader>
@@ -52,7 +52,7 @@ export default function AdminApplicant({ applicants }) {
               <div className="text-4xl font-bold">{applicants?.length}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-blue-200">
             <CardHeader>
               <CardTitle>Interviewed</CardTitle>
             </CardHeader>
@@ -60,7 +60,7 @@ export default function AdminApplicant({ applicants }) {
               <div className="text-4xl font-bold">{interviewed?.length}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-green-200">
             <CardHeader>
               <CardTitle>Hired</CardTitle>
             </CardHeader>
@@ -68,7 +68,7 @@ export default function AdminApplicant({ applicants }) {
               <div className="text-4xl font-bold">{offered?.length}</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-red-200">
             <CardHeader>
               <CardTitle>Rejected</CardTitle>
             </CardHeader>
@@ -117,19 +117,27 @@ export default function AdminApplicant({ applicants }) {
                       <TableCell>{item?.role}</TableCell>
                       {item.status === "pending" ? (
                         <TableCell>
-                          <Badge variant="secondary">Pending</Badge>
+                          <Badge variant="secondary" className="bg-orange-200">
+                            Pending
+                          </Badge>
                         </TableCell>
                       ) : item.status === "scheduled" ? (
                         <TableCell>
-                          <Badge variant="secondary">Scheduled</Badge>
+                          <Badge variant="secondary" className="bg-blue-200">
+                            Scheduled
+                          </Badge>
                         </TableCell>
                       ) : item.status === "interviewed" ? (
                         <TableCell>
-                          <Badge variant="secondary">Interviewed</Badge>
+                          <Badge variant="secondary" className="bg-green-200">
+                            Interviewed
+                          </Badge>
                         </TableCell>
                       ) : (
                         <TableCell>
-                          <Badge variant="secondary">Rejected</Badge>
+                          <Badge variant="secondary" className="bg-red-200">
+                            Rejected
+                          </Badge>
                         </TableCell>
                       )}
                       <TableCell>

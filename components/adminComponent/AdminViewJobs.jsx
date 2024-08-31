@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function AdminViewJobs({ jobs }) {
-  const interviewed = jobs.filter((job) => job.interview === "interview");
+  //const interviewed = jobs.filter((job) => job.interview === "interview");
   const offered = jobs.filter((job) => job.interview === "offered");
   const rejected = jobs.filter((job) => job.interview === "rejected");
   const applied = jobs.filter((job) => job.interview === "applied");
@@ -49,7 +49,7 @@ export default function AdminViewJobs({ jobs }) {
           </CardHeader>
           <CardContent className="flex items-center justify-between">
             <div className="text-4xl font-bold">{applied?.length}</div>
-            <ClipboardListIcon className="w-8 h-8 text-accent" />
+            <ClipboardListIcon className="w-8 h-8 text-accent text-blue-300" />
           </CardContent>
         </Card>
         <Card>
@@ -58,7 +58,7 @@ export default function AdminViewJobs({ jobs }) {
           </CardHeader>
           <CardContent className="flex items-center justify-between">
             <div className="text-4xl font-bold">{offered?.length}</div>
-            <CheckIcon className="w-8 h-8 text-success" />
+            <CheckIcon className="w-8 h-8 text-success text-green-300" />
           </CardContent>
         </Card>
         <Card>
@@ -67,7 +67,7 @@ export default function AdminViewJobs({ jobs }) {
           </CardHeader>
           <CardContent className="flex items-center justify-between">
             <div className="text-4xl font-bold">{pending?.length}</div>
-            <ClockIcon className="w-8 h-8 text-warning" />
+            <ClockIcon className="w-8 h-8 text-warning text-orange-300" />
           </CardContent>
         </Card>
       </div>
@@ -106,13 +106,21 @@ export default function AdminViewJobs({ jobs }) {
                   </TableCell>
                   <TableCell>
                     {job.interview === "applied" ? (
-                      <Badge variant="outline">Applied</Badge>
+                      <Badge variant="outline" className="bg-blue-200">
+                        Applied
+                      </Badge>
                     ) : job.interview === "offered" ? (
-                      <Badge variant="success">Offered</Badge>
+                      <Badge variant="success" className="bg-green-200">
+                        Offered
+                      </Badge>
                     ) : job.interview === "rejected" ? (
-                      <Badge variant="danger">Rejected</Badge>
+                      <Badge variant="danger" className="bg-red-200">
+                        Rejected
+                      </Badge>
                     ) : (
-                      <Badge variant="warning">Pending</Badge>
+                      <Badge variant="warning" className="bg-orange-200">
+                        Pending
+                      </Badge>
                     )}
                   </TableCell>
                   <TableCell>{applied?.length}</TableCell>

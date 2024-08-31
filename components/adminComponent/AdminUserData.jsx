@@ -127,7 +127,7 @@ export default function AdminUserData({ users }) {
                 <div className="text-4xl font-bold">{users?.length}</div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="bg-blue-200">
               <CardHeader className="flex items-center justify-between">
                 <CardTitle>Admins</CardTitle>
                 <UserIcon className="w-6 h-6 text-muted-foreground" />
@@ -136,7 +136,7 @@ export default function AdminUserData({ users }) {
                 <div className="text-4xl font-bold">{admin?.length}</div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="bg-orange-200">
               <CardHeader className="flex items-center justify-between">
                 <CardTitle>Recruiters</CardTitle>
                 <BriefcaseIcon className="w-6 h-6 text-muted-foreground" />
@@ -145,7 +145,7 @@ export default function AdminUserData({ users }) {
                 <div className="text-4xl font-bold">{recruiter?.length}</div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="bg-green-200">
               <CardHeader className="flex items-center justify-between">
                 <CardTitle>Job Seekers</CardTitle>
                 <UserIcon className="w-6 h-6 text-muted-foreground" />
@@ -176,15 +176,21 @@ export default function AdminUserData({ users }) {
                       <TableCell>{user.email}</TableCell>
                       {user.role === "ADMIN" ? (
                         <TableCell>
-                          <Badge variant="outline">Admin</Badge>
+                          <Badge variant="outline" className="bg-blue-200">
+                            Admin
+                          </Badge>
                         </TableCell>
                       ) : user.role === "VENDOR" ? (
                         <TableCell>
-                          <Badge variant="outline">Recruiter</Badge>
+                          <Badge variant="outline" className="bg-orange-200">
+                            Recruiter
+                          </Badge>
                         </TableCell>
                       ) : (
                         <TableCell>
-                          <Badge variant="outline">Job Seeker</Badge>
+                          <Badge variant="outline" className="bg-green-200">
+                            Job Seeker
+                          </Badge>
                         </TableCell>
                       )}
 

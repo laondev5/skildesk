@@ -22,6 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Badge } from "../ui/badge";
 
 // ChartJS.register(
 //   CategoryScale,
@@ -97,10 +98,12 @@ export default function AdminInterview({ interviews }) {
             <CardTitle className="text-sm font-medium">
               Total Interviews
             </CardTitle>
-            <CalendarIcon className="h-4 w-4 text-muted-foreground" />
+            <div className="bg-gray-100 p-3 rounded-full flex justify-center items-center">
+              <CalendarIcon className="h-4 w-4 text-muted-foreground" />
+            </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.total}</div>
+            <div className="text-2xl font-bold ">{stats.total}</div>
           </CardContent>
         </Card>
         <Card>
@@ -108,7 +111,9 @@ export default function AdminInterview({ interviews }) {
             <CardTitle className="text-sm font-medium">
               Completed Interviews
             </CardTitle>
-            <CheckCircle2Icon className="h-4 w-4 text-muted-foreground" />
+            <div className="bg-green-100 p-3 rounded-full flex justify-center items-center">
+              <CheckCircle2Icon className="h-4 w-4 text-muted-foreground text-green-300" />
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.completed}</div>
@@ -119,7 +124,9 @@ export default function AdminInterview({ interviews }) {
             <CardTitle className="text-sm font-medium">
               Pending Interviews
             </CardTitle>
-            <ClockIcon className="h-4 w-4 text-muted-foreground" />
+            <div className="bg-orange-100 p-3 rounded-full flex justify-center items-center">
+              <ClockIcon className="h-4 w-4 text-muted-foreground text-orange-300" />
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.pending}</div>
@@ -162,7 +169,17 @@ export default function AdminInterview({ interviews }) {
                 <TableCell>{interview.date}</TableCell>
                 <TableCell>{interview.time}</TableCell>
                 <TableCell>{interview.interviewType}</TableCell>
-                <TableCell>{interview.status}</TableCell>
+                <TableCell>
+                  {interview.status === "pending" ? (
+                    <Badge variant="secondary" className="bg-orange-200">
+                      Pending
+                    </Badge>
+                  ) : (
+                    <Badge variant="secondary" className="bg-green-200">
+                      Completed
+                    </Badge>
+                  )}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import AvailableJobs from "@/components/AvailableJobs";
 import Navbar from "@/components/Navbar";
 import Home from "@/components/userComponent/Home";
+import FindJobs from "@/components/FindJobs";
 const page = async () => {
   const jobs = await getAllJobs();
   //console.log(jobs);
@@ -12,7 +13,8 @@ const page = async () => {
     <div>
       <Navbar />
       <Container>
-        <Home jobs={jobs} />
+        {/* <Home jobs={jobs} /> */}
+        <FindJobs jobsData={jobs} />
       </Container>
     </div>
   );

@@ -94,25 +94,27 @@ model User {
 // }
 
 model Jobs {
-  id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  brandName   String
-  title       String
-  Description String
-  industry    String
-  jobType     String
-  country     String
-  pay         Int
-  status      String
-  interview   String?     @default("pending")
-  applicant   Applicant[]
-  interviewed Interview[]
-  city        String
-  coverImage  String
-  webUrl      String
-  createdAt   DateTime?   @default(now())
-  updatedAt   DateTime?   @updatedAt
-  userId      String      @db.ObjectId
-  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  brandName        String
+  title            String
+  Description      String
+  industry         String
+  jobType          String
+  payFrom          Int
+  payTo            Int
+  status           String
+  interview        String?     @default("pending")
+  applicant        Applicant[]
+  interviewed      Interview[]
+  location         String
+  experienceLevels String
+  jobCategories    String
+  coverImage       String
+  webUrl           String
+  createdAt        DateTime?   @default(now())
+  updatedAt        DateTime?   @updatedAt
+  userId           String      @db.ObjectId
+  user             User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Blogs {

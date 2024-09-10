@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Search, MapPin, Building, DollarSign, Clock } from "lucide-react";
+import { JobType, experienceLevels } from "@/lib/parameters";
+import Link from "next/link";
 
 // Mock data for jobs
 const allJobs = [
@@ -72,17 +75,18 @@ const allJobs = [
   // Add more job listings as needed
 ];
 
-const jobTypes = [
-  "Full-time",
-  "Part-time",
-  "Contract",
-  "Temporary",
-  "Internship",
-];
-const experienceLevels = ["Entry level", "Mid level", "Senior level"];
+// const jobTypes = [
+//   "Full-time",
+//   "Part-time",
+//   "Contract",
+//   "Temporary",
+//   "Internship",
+// ];
+//const experienceLevels = ["Entry level", "Mid level", "Senior level"];
 
-export default function Component() {
-  const [jobs, setJobs] = useState(allJobs);
+export default function FindJobs({ jobsData }) {
+  console.log(jobsData);
+  const [jobs, setJobs] = useState(jobsData);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [locationTerm, setLocationTerm] = useState("");
@@ -91,13 +95,13 @@ export default function Component() {
   const jobsPerPage = 5;
 
   useEffect(() => {
-    const filteredJobs = allJobs.filter(
+    const filteredJobs = jobsData.filter(
       (job) =>
         (job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          job.company.toLowerCase().includes(searchTerm.toLowerCase())) &&
+          job.brandName.toLowerCase().includes(searchTerm.toLowerCase())) &&
         job.location.toLowerCase().includes(locationTerm.toLowerCase()) &&
         (selectedJobTypes.length === 0 ||
-          selectedJobTypes.includes(job.type)) &&
+          selectedJobTypes.includes(job.jobType)) &&
         (selectedExperienceLevels.length === 0 ||
           selectedExperienceLevels.some((level) =>
             job.title.toLowerCase().includes(level.toLowerCase())
@@ -159,7 +163,7 @@ export default function Component() {
           <Card>
             <CardContent className="p-4">
               <h2 className="font-semibold mb-2">Job Type</h2>
-              {jobTypes.map((type) => (
+              {JobType.map((type) => (
                 <div key={type} className="flex items-center space-x-2 mb-2">
                   <Checkbox
                     id={type}
@@ -201,28 +205,43 @@ export default function Component() {
         <div className="w-full md:w-3/4">
           <div className="space-y-4 mb-8">
             {currentJobs.map((job) => (
-              <Card key={job.id} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <h2 className="text-xl font-semibold mb-2">{job.title}</h2>
-                  <div className="flex items-center text-muted-foreground mb-2">
-                    <Building className="mr-2 h-4 w-4" />
-                    <span className="mr-4">{job.company}</span>
-                    <MapPin className="mr-2 h-4 w-4" />
-                    <span>{job.location}</span>
-                  </div>
-                  <div className="flex items-center text-muted-foreground mb-4">
-                    <DollarSign className="mr-2 h-4 w-4" />
-                    <span className="mr-4">{job.salary}</span>
-                    <Clock className="mr-2 h-4 w-4" />
-                    <span>{job.posted}</span>
-                  </div>
-                  <p className="text-sm mb-4">{job.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">{job.type}</Badge>
-                    <Badge variant="secondary">{job.category}</Badge>
-                  </div>
-                </CardContent>
-              </Card>
+              <Link
+                key={job.id}
+                href={`/available_jobs/${job?.id}`}
+                className="py-4"
+              >
+                <Card className="hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <h2 className="text-xl font-semibold mb-2">{job?.title}</h2>
+                    <div className="flex items-center text-muted-foreground mb-2">
+                      <Building className="mr-2 h-4 w-4" />
+                      <span className="mr-4">{job?.brandName}</span>
+                      <MapPin className="mr-2 h-4 w-4" />
+                      <span>{job?.location}</span>
+                    </div>
+                    <div className="flex items-center text-muted-foreground mb-4">
+                      <DollarSign className="mr-2 h-4 w-4" />
+
+                      <span className="mr-4">
+                        {job?.payFrom} - {job?.payTo}
+                      </span>
+
+                      <Clock className="mr-2 h-4 w-4" />
+                      <span>
+                        Posted on {job.createdAt.toLocaleDateString()}
+                      </span>
+                    </div>
+                    <div
+                      className="w-[90%] ProseMirror whitespace-pre-line line-clamp-3"
+                      dangerouslySetInnerHTML={{ __html: job?.Description }}
+                    />
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary">{job?.jobType}</Badge>
+                      <Badge variant="secondary">{job?.jobCategories}</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 

@@ -14,7 +14,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Industries, JobType, Countries } from "@/lib/parameters";
+import {
+  Industries,
+  JobType,
+  Countries,
+  jobCategories,
+  experienceLevels,
+} from "@/lib/parameters";
 import { createJobs } from "@/app/action/createJobs";
 import { Controller, useForm } from "react-hook-form";
 import { InfinitySpin } from "react-loader-spinner";
@@ -76,9 +82,11 @@ const CreateJob = () => {
     setIsLoading(true);
     // get image
     const rawImage = data?.file[0];
-    const numString = data?.pay;
-    const payInt = parseInt(numString);
-    //console.log(rawImage);
+    //const numString = data?.pay;
+
+    const payTo = parseInt(data.payTo);
+    const payFrom = parseInt(data?.payFrom);
+    console.log(payFrom, payTo);
 
     //upload image
     const formData = new FormData();
@@ -104,11 +112,12 @@ const CreateJob = () => {
       const brandData = {
         ...data,
         file: image,
-        pay: payInt,
+        payFrom: payFrom,
+        payTo: payTo,
         description: des,
         status: "pending",
       };
-      //console.log(brandData);
+      console.log(brandData);
       createTask(userId, brandData);
       setIsLoading(false);
     } catch (error) {
@@ -244,6 +253,7 @@ const CreateJob = () => {
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 >
                   <option value="value1">select an option</option>
                   {Industries.map((ind, i) => (
@@ -276,6 +286,7 @@ const CreateJob = () => {
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 >
                   <option value="value1">select an option</option>
                   {JobType.map((ind, i) => (
@@ -290,7 +301,7 @@ const CreateJob = () => {
         </div>
         <div className=" my-2">
           <Controller
-            name="pay"
+            name="jobCategories"
             control={control}
             defaultValue=""
             render={({ field: { onChange, onBlur, value } }) => (
@@ -299,17 +310,108 @@ const CreateJob = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  Pay
+                  Category
                 </Label>
 
-                <Input
-                  type="number"
-                  id="pay"
-                  name="pay"
+                <select
+                  id="jobCategories"
+                  name="jobCategories"
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
-                  placeholder="payment"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                >
+                  <option value="value1">select an option</option>
+                  {jobCategories.map((ind, i) => (
+                    <option value={ind} key={i}>
+                      {ind}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+          />
+        </div>
+
+        <div className=" my-2">
+          <Controller
+            name="experienceLevels"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, onBlur, value } }) => (
+              <div>
+                <Label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Experience Levels
+                </Label>
+
+                <select
+                  id="experienceLevels"
+                  name="experienceLevels"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                >
+                  <option value="value1">select an option</option>
+                  {experienceLevels.map((ind, i) => (
+                    <option value={ind} key={i}>
+                      {ind}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+          />
+        </div>
+        <div className=" my-2">
+          <h3> Payment Range</h3>
+          <Controller
+            name="payFrom"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, onBlur, value } }) => (
+              <div>
+                <Label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                ></Label>
+
+                <Input
+                  type="number"
+                  id="payFrom"
+                  name="payFrom"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  placeholder="Range - from"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            )}
+          />
+
+          <Controller
+            name="payTo"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, onBlur, value } }) => (
+              <div>
+                <Label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="email"
+                ></Label>
+
+                <Input
+                  type="number"
+                  id="payTo"
+                  name="payTo"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  placeholder="Range - to"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
@@ -317,7 +419,7 @@ const CreateJob = () => {
           />
         </div>
 
-        <div className=" my-2">
+        {/* <div className=" my-2">
           <Controller
             name="country"
             control={control}
@@ -348,10 +450,10 @@ const CreateJob = () => {
               </div>
             )}
           />
-        </div>
+        </div> */}
         <div className=" my-2">
           <Controller
-            name="city"
+            name="location"
             control={control}
             defaultValue=""
             render={({ field: { onChange, onBlur, value } }) => (
@@ -360,17 +462,17 @@ const CreateJob = () => {
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
                 >
-                  City
+                  Location
                 </Label>
 
                 <Input
                   type="text"
-                  id="city"
-                  name="city"
+                  id="location"
+                  name="location"
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
-                  placeholder="city"
+                  placeholder="Nigeria, lagos"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
@@ -378,21 +480,6 @@ const CreateJob = () => {
           />
         </div>
         <div className=" my-2">
-          {/* <Textarea
-            {...register("description")}
-            //value={jobData.Description}
-            placeholder="description"
-            id="description"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          /> */}
-          {/* <input
-            type="text"
-            className="hidden"
-            {...register("description")} // Register the editorContent field
-            value={editorContent} // Pass the Tiptap editor content as the value
-          /> */}
-          {/* <Tiptap handleEditorChange={handleEditorChange} /> */}
-
           <Controller
             name="description"
             control={control}

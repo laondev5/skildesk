@@ -6,17 +6,19 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   const body = await request.json();
   const { userId, data } = body;
-  //console.log(userId, data);
+  console.log(userId, data);
   try {
     const job = await prisma.Jobs.create({
       data: {
         title: data.title,
         brandName: data.brandName,
-        country: data.country,
         Description: data.description,
-        pay: data.pay,
+        payFrom: data.payFrom,
+        payTo: data.payTo,
+        experienceLevels: data.experienceLevels,
+        jobCategories: data.jobCategories,
         jobType: data.jobType,
-        city: data.city,
+        location: data.location,
         industry: data.industry,
         coverImage: data.file,
         userId: userId,

@@ -14,9 +14,9 @@ export function HeroScroll({ session }) {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+            <h1 className="text-4xl font-semibold text-white">
               Find Your Perfect Talent, Effortlessly <br />
-              <span className="text-2xl md:text-[6rem] font-bold mt-1 leading-none text-gray-600 ">
+              <span className="text-2xl md:text-[6rem] font-bold mt-1 leading-none text-white ">
                 Skildesk is your one-stop solution
               </span>
             </h1>

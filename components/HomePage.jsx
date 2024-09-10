@@ -76,7 +76,7 @@ export default function HomePage({ session }) {
             </div>
           </div>
         </section> */}
-        <section className="px-4 py-20 text-center relative overflow-hidden bg-blue-100">
+        <section className="px-4 py-20 text-center relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white">
           <div className="container mx-auto ">
             {/* <div className="z-50 mb-[10rem]">
               <motion.h2

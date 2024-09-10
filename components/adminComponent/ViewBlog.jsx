@@ -33,7 +33,7 @@ const ViewBlog = ({ blogs }) => {
             <div className="mt-4">
               <h3 className="text-lg font-bold">{blog.title}</h3>
               <div
-                className="w-[90%] ProseMirror whitespace-pre-line text-ellipsis overflow-hidden "
+                className="w-[90%] ProseMirror whitespace-pre-line line-clamp-1 "
                 dangerouslySetInnerHTML={{ __html: blog.description }}
               />
               <div className="flex w-[100%] justify-between items-center">

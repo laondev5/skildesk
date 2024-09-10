@@ -19,13 +19,23 @@ const Animsection = ({ data, i }) => {
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   return (
-    <div ref={container} className={styles.cardContainer}>
-      <div className={styles.card} style={{ backgroundColor: data.color }}>
-        <h2>{data.title}</h2>
+    <div
+      ref={container}
+      className={`sticky top-[10rem] flex justify-center items-center h-[70vh]`}
+    >
+      <div
+        className={`flex flex-col top-[-10px] relative h-[100%] w-[100%] rounded-xl py-10 shadow-md origin-top transform`}
+        style={{ backgroundColor: data.color }}
+      >
+        <h2 className="text-center text-3xl font-extrabold text-white my-6">
+          {data.title}
+        </h2>
 
-        <div className={styles.body}>
-          <div className={styles.description}>
-            <p>{data.description}</p>
+        <div className={`flex h-[100%]  mt-10 px-[5rem]`}>
+          <div className={`relative top-10 w-[40%]`}>
+            <p className="font-semibold text-[18px] text-white">
+              {data.description}
+            </p>
 
             {/* <span>
               <a href={url} target="_blank">
@@ -47,9 +57,19 @@ const Animsection = ({ data, i }) => {
             </span> */}
           </div>
 
-          <div className={styles.imageContainer}>
-            <motion.div className={styles.inner} style={{ scale: imageScale }}>
-              <Image fill src={data.image} alt="image" />
+          <div
+            className={`relative w-[60%] h-[100%] overflow-hidden rounded-xl`}
+          >
+            <motion.div
+              className={`w-[100%] h-[100%] overflow-hidden`}
+              style={{ scale: imageScale }}
+            >
+              <Image
+                fill
+                src={data.image}
+                className="object-fill w-[20rem] rounded-xl"
+                alt="image"
+              />
             </motion.div>
           </div>
         </div>

@@ -51,7 +51,7 @@ export const AdminRouteLink = [
 
 export const UserRouteLink = [
   { label: "Dashboard", path: "/user", icon: <LayoutDashboard /> },
-  { label: " Find Work", path: "/user/work", icon: <FilePlus /> },
+  { label: " Find Work", path: "/available_jobs", icon: <FilePlus /> },
   { label: "My Jobs", path: "/user/jobs", icon: <Briefcase /> },
   // { label: "My Activity", path: "/user/activity", icon: <Target /> },
   { label: " Messages", path: "/user/message", icon: <Send /> },

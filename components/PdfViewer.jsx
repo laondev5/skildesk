@@ -1,6 +1,9 @@
 "use client";
-import { Document, Page, workerSrc } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
+//import pdfjsWorker from "react-pdf/node_modules/pdfjs-dist/build/pdf.worker.entry";
 import { useState } from "react";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 export default function PdfViewer({ pdfData }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -19,11 +22,7 @@ export default function PdfViewer({ pdfData }) {
 
   return (
     <div>
-      <Document
-        file={new Blob([pdfData], { type: "application/pdf" })}
-        onLoadSuccess={onDocumentLoad}
-        workerSrc={workerSrc}
-      >
+      <Document file={pdfData} onLoadSuccess={onDocumentLoad}>
         <Page pageNumber={pageNumber} />
       </Document>
       <div>

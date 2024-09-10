@@ -141,7 +141,7 @@ export default function AboutPage() {
             variants={fadeIn}
           >
             Were always looking for passionate individuals to join our team. If
-            youre excited about revolutionizing the hiring process, we'd love to
+            youre excited about revolutionizing the hiring process, wed love to
             hear from you.
           </motion.p>
           <motion.div variants={fadeIn}>

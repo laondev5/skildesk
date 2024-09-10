@@ -1,50 +1,67 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { useSession } from "next-auth/react";
-//import { useRouter } from "next/navigation";
+import { formatDistanceToNow } from "date-fns";
 
-const UserViewBlogDetails = ({ blogs }) => {
-  const { data: session } = useSession();
+// Mock data for b
 
+export default function UserViewBlogDetails({ blogPosts }) {
+  console.log(blogPosts);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-8 w-[100%] px-8">
-      {blogs.map((blog, i) => (
-        <Link
-          key={i}
-          href={{
-            pathname: "/viewBlogDetails",
-            query: {
-              itemId: blog.id,
-            },
-          }}
+    <>
+      <section className="w-full bg-gradient-to-br from-purple-500 to-pink-500">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="py-16 text-center text-white"
         >
-          <div className="w-[100%] bg-white rounded-md hover:shadow-md p-4">
-            <div className="flex justify-center items-center w-fill">
-              <Image
-                src={blog.coverImage}
-                alt={blog.title}
-                width={100}
-                height={100}
-                className="w-[100%] rounded-md"
-              />
-            </div>
-            <div className="mt-4">
-              <h3 className="text-lg font-bold">{blog.title}</h3>
-              <div className="flex w-[100%] justify-between items-center">
-                <p className="text-gray-600">{blog.author}</p>
-                <p className="text-sm font-light">
-                  {new Date(blog.createdAt).toLocaleDateString()}
-                </p>
-              </div>
-              {/* <p className="text-gray-600">{blog.author}</p> */}
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
-  );
-};
+          <h1 className="text-4xl font-bold mb-4">Welcome to Our Blog</h1>
+          <p className="text-xl">Discover the latest insights and tutorials</p>
+        </motion.div>
+      </section>
 
-export default UserViewBlogDetails;
+      <main className="container mx-auto px-4 py-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {blogPosts.map((post) => (
+            <motion.article
+              key={post.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-lg overflow-hidden shadow-lg"
+            >
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                width={300}
+                height={200}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+                <div
+                  className="w-[90%] ProseMirror whitespace-pre-line line-clamp-3"
+                  dangerouslySetInnerHTML={{ __html: post?.description }}
+                />
+
+                <div className="flex justify-between items-center text-sm text-gray-500">
+                  <span>{post.author}</span>
+                  <span>
+                    {formatDistanceToNow(post.createdAt, { addSuffix: true })}
+                  </span>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+      </main>
+    </>
+  );
+}

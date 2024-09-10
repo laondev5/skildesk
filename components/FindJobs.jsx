@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { Search, MapPin, Building, DollarSign, Clock } from "lucide-react";
 import { JobType, experienceLevels } from "@/lib/parameters";
 import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
 
 // Mock data for jobs
 const allJobs = [
@@ -228,7 +229,9 @@ export default function FindJobs({ jobsData }) {
 
                       <Clock className="mr-2 h-4 w-4" />
                       <span>
-                        Posted on {job.createdAt.toLocaleDateString()}
+                        {formatDistanceToNow(job?.createdAt, {
+                          addSuffix: true,
+                        })}
                       </span>
                     </div>
                     <div

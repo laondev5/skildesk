@@ -12,7 +12,7 @@ const page = async () => {
     <div>
       <Navbar />
       <Container>
-        <UserViewBlogDetails blogs={blogs} />
+        <UserViewBlogDetails blogPosts={blogs} />
       </Container>
     </div>
   );

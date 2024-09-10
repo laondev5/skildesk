@@ -35,7 +35,7 @@ export const AdminRouteLink = [
   { label: "Applicants", path: "/admin/applicant", icon: <Briefcase /> },
   { label: "Create blog", path: "/admin/blog", icon: <NotebookPen /> },
   { label: "View jobs", path: "/admin/view_job", icon: <ScanEye /> },
-  { label: "Message", path: "/admin/message", icon: <MessageCircleMore /> },
+  { label: "Employees", path: "/admin/employee", icon: <MessageCircleMore /> },
   {
     label: "interview",
     path: "/admin/interview",
@@ -46,6 +46,7 @@ export const AdminRouteLink = [
     path: "/admin/newsletter",
     icon: <Mail />,
   },
+  { label: "Message", path: "/admin/message", icon: <MessageCircleMore /> },
 ];
 
 export const UserRouteLink = [

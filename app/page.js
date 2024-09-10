@@ -8,6 +8,7 @@ import Head from "next/head";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NewsLetter from "@/components/NewsLetter";
 import HomePage from "@/components/HomePage";
+import NewHomeScreen from "@/components/NewHomeScreen";
 export default async function Home() {
   const session = await getServerSession(authOptions);
   return (
@@ -15,6 +16,7 @@ export default async function Home() {
       <Navbar />
       <NewsLetter />
       <HomePage session={session} />
+      {/* <NewHomeScreen session={session} /> */}
 
       {/* <section className="relative flex w-full h-[80vh] lg:h-[73vh] overflow-hidden">
        

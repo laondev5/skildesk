@@ -10,7 +10,7 @@ const NavItem = ({ label, routPath, icon }) => {
   return (
     <div
       key={1}
-      className={`my-2 text-gray-400 font-normal flex space-x-3 items-start rounded-md p-2 hover:bg-gray-200 hover:text-white text-md ${
+      className={`my-1 text-gray-400 font-normal flex space-x-3 items-start rounded-md p-2 hover:bg-gray-200 hover:text-white text-md ${
         pathname === routPath && "bg-gray-400 shadow-sm text-white"
       }`}
     >

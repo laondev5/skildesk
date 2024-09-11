@@ -16,7 +16,7 @@ export function HeroScroll({ session }) {
           <>
             <h1 className="text-4xl font-semibold text-white">
               Find Your Perfect Talent, Effortlessly <br />
-              <span className="text-2xl md:text-[6rem] font-bold mt-1 leading-none text-white ">
+              <span className="text-2xl md:text-[4rem] font-bold mt-1 mb-[10rem] leading-none text-white ">
                 Skildesk is your one-stop solution
               </span>
             </h1>
@@ -24,10 +24,10 @@ export function HeroScroll({ session }) {
         }
       >
         <Image
-          src={`/n1.png`}
+          src={`/n2.svg`}
           alt="hero"
-          height={720}
-          width={1400}
+          height={520}
+          width={1200}
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
         />

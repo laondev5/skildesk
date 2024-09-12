@@ -25,39 +25,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 via-pink-50 to-red-50">
-      <motion.header
-        className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white py-24 px-4 sm:px-6 lg:px-8"
-        initial={{ height: 0 }}
-        animate={{ height: "auto" }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-      >
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute inset-0 bg-black opacity-20"
-            initial={{ scale: 1.2 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 opacity-75"
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-        </div>
-        <div className="relative max-w-3xl mx-auto text-center">
-          <motion.h1
-            className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4"
-            {...fadeIn}
-          >
-            About Skildesk
-          </motion.h1>
-          <motion.p className="text-xl" {...fadeIn} transition={{ delay: 0.2 }}>
-            Empowering businesses with innovative hiring solutions
-          </motion.p>
-        </div>
-      </motion.header>
-
+      c
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.section
           className="mb-20"
@@ -155,7 +123,6 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
       </main>
-
       <motion.footer
         className="bg-gradient-to-r from-purple-100 to-pink-100 py-12 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}

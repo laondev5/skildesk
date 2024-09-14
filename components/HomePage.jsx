@@ -124,7 +124,7 @@ export default function HomePage({ session }) {
             </div>
             <Globe className="top-[18rem]" />
             <div className="pointer-events-none absolute inset-0 h-full " /> */}
-            <HeroScroll session={session} />
+            <HeroScroll session={session} className="w-[60%]" />
             <motion.div
               className="z-20"
               initial={{ opacity: 0, y: 20 }}

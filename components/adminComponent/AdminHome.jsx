@@ -200,6 +200,7 @@ export default function AdminHome({ jobs, applicants }) {
                     <TableHead>Role</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Date</TableHead>
+                    <TableHead>Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -236,6 +237,11 @@ export default function AdminHome({ jobs, applicants }) {
                       <TableCell>
                         {" "}
                         {new Date(item.createdAt).toLocaleDateString()}
+                      </TableCell>
+                      <TableCell>
+                        <Link href={`/admin/applicant/${item.id}`}>
+                          <Button>View</Button>
+                        </Link>
                       </TableCell>
                     </TableRow>
                   ))}

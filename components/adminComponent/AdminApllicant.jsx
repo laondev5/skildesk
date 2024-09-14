@@ -158,10 +158,10 @@ export default function AdminApplicant({ applicants }) {
                                 View Applicant
                               </DropdownMenuItem>
                             </Link>
+                            <Link href={`/admin/applicant/exam/${item.id}`}>
+                              <DropdownMenuItem>Set Exams</DropdownMenuItem>
+                            </Link>
 
-                            <DropdownMenuItem>
-                              Schedule Interview
-                            </DropdownMenuItem>
                             <DropdownMenuItem>
                               Reject Application
                             </DropdownMenuItem>

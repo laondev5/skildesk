@@ -21,36 +21,37 @@ const Animsection = ({ data, i }) => {
   return (
     <div
       ref={container}
-      className={`sticky top-[10rem] flex justify-center items-center h-[70vh]`}
+      className={`sticky top-[10rem] flex justify-center items-center h-[80vh]`}
     >
       <div
-        className={`flex flex-col top-[-10px] relative h-[100%] w-[100%] rounded-xl py-10 shadow-md origin-top transform`}
-        style={{ backgroundColor: data.color }}
+        className={`flex flex-col top-[-10px]  h-[90%] w-[75%] rounded-[2rem] py-10 shadow-md origin-top transform bg-gradient-to-br ${data.color}`}
+        // style={{ backgroundColor: data.color }}
       >
-        <h2 className="text-center text-3xl font-extrabold text-white my-6">
+        <h2 className="text-center text-3xl font-extrabold text-black my-6">
           {data.title}
         </h2>
 
         <div
-          className={`flex h-[100%] flex-col lg:flex-row gap-10 mt-10 px-[5rem]`}
+          className={`flex h-[100%] flex-col lg:flex-row gap-10 items-center  px-[5rem]`}
         >
-          <div className={` top-10 w-[100%] md:w-[40%]`}>
-            <p className="font-semibold text-[18px] text-white text-center md:text-start">
+          <div className={` top-10 w-[100%] flex-1`}>
+            <p className="font-semibold text-[20px] text-black text-center md:text-start">
               {data.description}
             </p>
           </div>
 
           <div
-            className={`w-[100%] md:w-[60%] h-[100%] overflow-hidden rounded-xl`}
+            className={`w-[100%] flex-1 flex justify-center items-center h-[80%] overflow-hidden rounded-[2rem]`}
           >
             <motion.div
-              className={`w-[100%] h-[100%] overflow-hidden`}
+              className={`w-[100%] h-[100%] overflow-hidden rounded-[2rem]`}
               style={{ scale: imageScale }}
             >
               <Image
-                fill
                 src={data.image}
-                className="object-fill w-[20rem] rounded-md"
+                width={100}
+                height={150}
+                className="object-cover w-[100%] rounded-[2rem]"
                 alt="image"
               />
             </motion.div>

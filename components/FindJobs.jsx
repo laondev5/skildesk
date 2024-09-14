@@ -153,7 +153,7 @@ export default function FindJobs({ jobsData }) {
 
   return (
     <>
-      <div className="min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-purple-700 via-pink-600 to-orange-500 p-4">
+      <div className="min-h-[70vh] flex items-center w-full justify-center bg-gradient-to-br from-purple-700 via-pink-600 to-orange-500 p-4">
         <div className="relative w-full max-w-4xl">
           <motion.div
             className="text-center"
@@ -170,10 +170,10 @@ export default function FindJobs({ jobsData }) {
           </motion.div>
 
           {[
-            { top: "10%", left: "5%", label: "Data analytics" },
-            { top: "20%", right: "5%", label: "Software Engineering" },
-            { bottom: "15%", left: "10%", label: "Problem Solving" },
-            { bottom: "25%", right: "10%", label: "Project Management" },
+            { top: "-20%", left: "5%", label: "Data analytics" },
+            { top: "-20%", right: "5%", label: "Software Engineering" },
+            { bottom: "-15%", left: "10%", label: "Problem Solving" },
+            { bottom: "-15%", right: "10%", label: "Project Management" },
           ].map((item, index) => (
             <motion.div
               key={index}

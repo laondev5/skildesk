@@ -26,8 +26,8 @@ export function HeroScroll({ session }) {
         <Image
           src={`/n2.svg`}
           alt="hero"
-          height={520}
-          width={1200}
+          height={420}
+          width={1000}
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
         />

@@ -32,7 +32,7 @@ export default function AboutLayout({ children }) {
           </div>
           <div className="w-[100%] flex bg-gray-50  ">
             <div className="w-[20%] hidden lg:block"></div>
-            <div className="w-[100%] lg:w-[80%] py-4 relative">
+            <div className="w-[90%] lg:w-[80%] py-4 relative">
               <div className="fixed bottom-6 right-5 rounded-full w-[4rem]  z-50 h-[4rem]">
                 <ChatBox />
               </div>

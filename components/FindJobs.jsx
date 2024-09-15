@@ -11,6 +11,7 @@ import { JobType, experienceLevels } from "@/lib/parameters";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { motion } from "framer-motion";
+import Empty from "./Empty";
 
 // Mock data for jobs
 // const allJobs = [
@@ -107,7 +108,7 @@ export default function FindJobs({ jobsData }) {
     return Math.sqrt(dx * dx + dy * dy);
   };
 
-  console.log(jobsData);
+  //console.log(jobsData);
   const [jobs, setJobs] = useState(jobsData);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -285,49 +286,61 @@ export default function FindJobs({ jobsData }) {
 
           <div className="w-full md:w-3/4">
             <div className="space-y-4 mb-8">
-              {currentJobs.map((job) => (
-                <Link
-                  key={job.id}
-                  href={`/available_jobs/${job?.id}`}
-                  className="py-4"
-                >
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <h2 className="text-xl font-semibold mb-2">
-                        {job?.title}
-                      </h2>
-                      <div className="flex items-center text-muted-foreground mb-2">
-                        <Building className="mr-2 h-4 w-4" />
-                        <span className="mr-4">{job?.brandName}</span>
-                        <MapPin className="mr-2 h-4 w-4" />
-                        <span>{job?.location}</span>
-                      </div>
-                      <div className="flex items-center text-muted-foreground mb-4">
-                        <DollarSign className="mr-2 h-4 w-4" />
+              {currentJobs ? (
+                <>
+                  {currentJobs.map((job) => (
+                    <Link
+                      key={job.id}
+                      href={`/available_jobs/${job?.id}`}
+                      className="py-4"
+                    >
+                      <Card className="hover:shadow-md transition-shadow">
+                        <CardContent className="p-6">
+                          <h2 className="text-xl font-semibold mb-2">
+                            {job?.title}
+                          </h2>
+                          <div className="flex items-center text-muted-foreground mb-2">
+                            <Building className="mr-2 h-4 w-4" />
+                            <span className="mr-4">{job?.brandName}</span>
+                            <MapPin className="mr-2 h-4 w-4" />
+                            <span>{job?.location}</span>
+                          </div>
+                          <div className="flex items-center text-muted-foreground mb-4">
+                            <DollarSign className="mr-2 h-4 w-4" />
 
-                        <span className="mr-4">
-                          {job?.payFrom} - {job?.payTo}
-                        </span>
+                            <span className="mr-4">
+                              {job?.payFrom} - {job?.payTo}
+                            </span>
 
-                        <Clock className="mr-2 h-4 w-4" />
-                        <span>
-                          {formatDistanceToNow(job?.createdAt, {
-                            addSuffix: true,
-                          })}
-                        </span>
-                      </div>
-                      <div
-                        className="w-[90%] ProseMirror whitespace-pre-line line-clamp-3"
-                        dangerouslySetInnerHTML={{ __html: job?.Description }}
-                      />
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="secondary">{job?.jobType}</Badge>
-                        <Badge variant="secondary">{job?.jobCategories}</Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
+                            <Clock className="mr-2 h-4 w-4" />
+                            <span>
+                              {formatDistanceToNow(job?.createdAt, {
+                                addSuffix: true,
+                              })}
+                            </span>
+                          </div>
+                          <div
+                            className="w-[90%] ProseMirror whitespace-pre-line line-clamp-3"
+                            dangerouslySetInnerHTML={{
+                              __html: job?.Description,
+                            }}
+                          />
+                          <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary">{job?.jobType}</Badge>
+                            <Badge variant="secondary">
+                              {job?.jobCategories}
+                            </Badge>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <Empty />
+                </>
+              )}
             </div>
 
             <div className="flex justify-center space-x-2">

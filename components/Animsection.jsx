@@ -24,24 +24,24 @@ const Animsection = ({ data, i }) => {
       className={`sticky top-[10rem] flex justify-center items-center h-[80vh]`}
     >
       <div
-        className={`flex flex-col top-[-10px]  h-[90%] w-[75%] rounded-[2rem] py-10 shadow-md origin-top transform bg-gradient-to-br ${data.color}`}
+        className={`flex flex-col top-[-10px] h-[60%] lg:h-[90%] w-[75%] rounded-[2rem] py-10 shadow-md origin-top transform bg-gradient-to-br ${data.color}`}
         // style={{ backgroundColor: data.color }}
       >
-        <h2 className="text-center text-3xl font-extrabold text-black my-6">
+        <h2 className="text-center text-2xl lg:text-3xl font-extrabold text-black my-6">
           {data.title}
         </h2>
 
         <div
-          className={`flex h-[100%] flex-col lg:flex-row gap-10 items-center  px-[5rem]`}
+          className={`flex h-[100%] w-[100%] flex-col lg:flex-row gap-10 items-center justify-center px-5 lg:px-[5rem]`}
         >
-          <div className={` top-10 w-[100%] flex-1`}>
-            <p className="font-semibold text-[20px] text-black text-center md:text-start">
+          <div className={` top-10 w-[100%] lg:flex-1`}>
+            <p className="font-semibold w-[100%] text-[18px] lg:text-[20px] text-black text-center md:text-start">
               {data.description}
             </p>
           </div>
 
           <div
-            className={`w-[100%] flex-1 flex justify-center items-center h-[80%] overflow-hidden rounded-[2rem]`}
+            className={`hidden w-[100%] flex-1 lg:flex justify-center items-center h-[80%] overflow-hidden rounded-[2rem]`}
           >
             <motion.div
               className={`w-[100%] h-[100%] overflow-hidden rounded-[2rem]`}

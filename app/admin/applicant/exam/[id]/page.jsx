@@ -2,9 +2,10 @@ import { RecruiterInterface } from "@/components/adminComponent/RecruiterExamsIn
 import React from "react";
 
 const page = ({ params }) => {
+  const applicantId = params.id;
   return (
     <div>
-      <RecruiterInterface />
+      <RecruiterInterface applicantId={applicantId} />
     </div>
   );
 };

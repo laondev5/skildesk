@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export function RecruiterInterface() {
+export function RecruiterInterface({ applicantId }) {
   const [examTitle, setExamTitle] = useState("");
   const [steps, setSteps] = useState([
     { type: "multiple-choice", questions: [], passScore: 0 },
@@ -51,16 +51,32 @@ export function RecruiterInterface() {
     newSteps[stepIndex].questions[questionIndex][field] = value;
     setSteps(newSteps);
   };
+  const handleSubmit = async (data) => {
+    const res = await fetch("/api/exams", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    });
+
+    if (!res) {
+      toast.error("Failed to create exams");
+    } else {
+      toast.success("Exams created successfully");
+    }
+  };
 
   const handleCreateExam = () => {
-    onCreateExam({ title: examTitle, steps });
+    const newExam = { title: examTitle, steps, applicantId };
+    console.log("Created Exam:", newExam);
+    handleSubmit(newExam);
     setExamTitle("");
     setSteps([
       { type: "multiple-choice", questions: [], passScore: 0 },
       { type: "multiple-choice", questions: [], passScore: 0 },
       { type: "multiple-choice", questions: [], passScore: 0 },
     ]);
-    console.log(steps);
   };
 
   return (

@@ -115,7 +115,7 @@ export default function AdminHome({ jobs, applicants }) {
       </header> */}
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
         <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
-          <Card>
+          <Card className="">
             <CardHeader>
               <CardTitle>Candidate Pipeline</CardTitle>
               <CardDescription>
@@ -123,8 +123,8 @@ export default function AdminHome({ jobs, applicants }) {
                 applications, interviews, and offers.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <CardContent className="">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 ">
                 <div className="bg-primary/10 rounded-lg p-4 text-center">
                   <div className="text-4xl font-bold text-primary">
                     {applicants?.length}
@@ -158,8 +158,8 @@ export default function AdminHome({ jobs, applicants }) {
               </div>
             </CardContent>
           </Card>
-          <div className="w-full">
-            <Card>
+          <div className="">
+            <Card className="">
               <CardHeader>
                 <CardTitle>Interview Performance</CardTitle>
                 <CardDescription>
@@ -184,7 +184,7 @@ export default function AdminHome({ jobs, applicants }) {
               </CardContent>
             </Card> */}
           </div>
-          <Card>
+          <Card className="">
             <CardHeader>
               <CardTitle>Recent Job Allocations</CardTitle>
               <CardDescription>
@@ -250,7 +250,7 @@ export default function AdminHome({ jobs, applicants }) {
             </CardContent>
           </Card>
         </div>
-        <div>
+        <div className="">
           <Card>
             <CardHeader>
               <CardTitle>Total Job Opening</CardTitle>
@@ -290,22 +290,22 @@ function BarchartChart(props) {
     <div {...props}>
       <ChartContainer
         config={{
-          desktop: {
-            label: "Desktop",
+          Applicant: {
+            label: "Applicant",
             color: "hsl(var(--chart-1))",
           },
         }}
-        className="min-h-[300px]"
+        className="min-h-[300px] w-[95%] "
       >
         <BarChart
           accessibilityLayer
           data={[
-            { month: "January", desktop: 186 },
-            { month: "February", desktop: 305 },
-            { month: "March", desktop: 237 },
-            { month: "April", desktop: 73 },
-            { month: "May", desktop: 209 },
-            { month: "June", desktop: 214 },
+            { month: "January", Applicant: 186 },
+            { month: "February", Applicant: 305 },
+            { month: "March", Applicant: 237 },
+            { month: "April", Applicant: 73 },
+            { month: "May", Applicant: 209 },
+            { month: "June", Applicant: 214 },
           ]}
         >
           <CartesianGrid vertical={false} />
@@ -320,7 +320,7 @@ function BarchartChart(props) {
             cursor={false}
             content={<ChartTooltipContent hideLabel />}
           />
-          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8} />
+          <Bar dataKey="Applicant" fill="var(--color-desktop)" radius={8} />
         </BarChart>
       </ChartContainer>
     </div>

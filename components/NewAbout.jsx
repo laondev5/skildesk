@@ -75,9 +75,14 @@ export default function AboutPage() {
             className="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto"
             variants={fadeIn}
           >
-            At Skildesk, were on a mission to revolutionize the hiring process.
-            We believe that finding the right talent should be efficient,
-            data-driven, and tailored to each companys unique needs.
+            At Skildesk, our mission is to make the process of finding the right
+            talent not only efficient but also data-driven and customized to
+            meet each company’s unique requirements. We believe that every
+            organization deserves access to the best candidates, and we strive
+            to simplify the recruitment journey. By leveraging advanced
+            technology and insights, we ensure that our solutions are tailored
+            specifically to your business needs, empowering you to build strong,
+            effective teams that drive success.
           </motion.p>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"

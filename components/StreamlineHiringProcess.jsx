@@ -18,10 +18,13 @@ export default function StreamlineHiringProcess({ session }) {
           Empower Your Business Today!
         </h2>
         <p className="text-lg md:text-xl mb-8 text-center">
-          Join the growing number of companies that trust Skildesk to streamline
-          their hiring process and enhance workforce effectiveness. Experience a
-          seamless recruitment journey and watch your team thrive.
+          Join the growing number of companies that trust Skildesk to
+          revolutionize their hiring process and elevate their teams. Our
+          platform streamlines recruitment, making it easier and faster for you
+          to find the right talent. Empower your business today and watch your
+          team thrive with Skildesk by your side
         </p>
+
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
           <div className="flex items-center">
             <CheckCircleIcon className="w-6 h-6 mr-2" />

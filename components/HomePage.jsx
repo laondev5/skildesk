@@ -227,9 +227,12 @@ export default function HomePage({ session }) {
                 Your Partner in Success
               </h2>
               <p className="max-w-[600px] text-center text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Skildesk is more than just a recruitment platform. We&apos;re
-                your strategic partner, dedicated to helping you build
-                high-performing teams that drive your business forward.
+                Skildesk goes beyond recruitment by partnering with businesses
+                to build high-performing teams aligned with both immediate needs
+                and long-term goals. They focus on finding top talent, fostering
+                continuous improvement, and increasing employee engagement to
+                ensure success. Skildesk positions itself as a strategic partner
+                invested in client success, not just a service provider.
               </p>
             </div>
 
@@ -273,10 +276,13 @@ export default function HomePage({ session }) {
                   At Your Fingertips
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  We understand that your hiring needs don&apos;t always fit
-                  neatly into business hours. That&apos;s why our dedicated
-                  support team is available 24/7 to assist you with any
-                  questions or concerns you may have.
+                  The demands of hiring and talent management don&apos;t always
+                  align with traditional business hours. That’s why our
+                  dedicated support team is available around the clock, 24/7, to
+                  ensure you have the assistance you need, whenever you need it.
+                  Whether you have questions, face challenges, or need guidance
+                  on optimizing your recruitment process, our team is just a
+                  click or call away.
                 </p>
               </div>
             </div>

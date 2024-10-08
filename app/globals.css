@@ -67,3 +67,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Add media queries for mobile view */
+@media only screen and (max-width: 768px) {
+  /* Adjust top and bottom values to fit mobile screen */
+  .absolute {
+    top: "-10%!important";
+    bottom: "-10%!important";
+  }
+  /* Adjust left and right values to fit mobile screen */
+  .absolute:nth-child(1), .absolute:nth-child(3) {
+    left: "2%!important";
+  }
+  .absolute:nth-child(2), .absolute:nth-child(4) {
+    right: "2%!important";
+  }
+  /* Reduce font size and padding to fit mobile screen */
+  .absolute {
+    font-size: 14px!important;
+    padding: 2px 4px!important;
+  }
+}

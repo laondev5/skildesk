@@ -21,10 +21,10 @@ const Animsection = ({ data, i }) => {
   return (
     <div
       ref={container}
-      className={`sticky top-[10rem] flex justify-center items-center h-[80vh]`}
+      className={`sticky top-[10rem] flex justify-center w-full items-center h-[90vh]`}
     >
       <div
-        className={`flex flex-col top-[-10px] h-[60%] lg:h-[90%] w-[75%] rounded-[2rem] py-10 shadow-md origin-top transform bg-gradient-to-br ${data.color}`}
+        className={`flex flex-col top-[-10px] h-[60%] lg:h-[95%] w-[100%] lg:w-[85%] rounded-[2rem] py-10 shadow-md origin-top transform bg-gradient-to-br ${data.color}`}
         // style={{ backgroundColor: data.color }}
       >
         <h2 className="text-center text-2xl lg:text-3xl font-extrabold text-black my-6">
@@ -35,7 +35,7 @@ const Animsection = ({ data, i }) => {
           className={`flex h-[100%] w-[100%] flex-col lg:flex-row gap-10 items-center justify-center px-5 lg:px-[5rem]`}
         >
           <div className={` top-10 w-[100%] lg:flex-1`}>
-            <p className="font-semibold w-[100%] text-[18px] lg:text-[20px] text-black text-center md:text-start">
+            <p className="font-semibold w-[100%] text-[16px] lg:text-[20px] text-black text-center md:text-start">
               {data.description}
             </p>
           </div>

@@ -7,38 +7,30 @@ export async function POST(request) {
   const body = await request.json();
   const { data } = body;
   console.log(data);
-  //   try {
-  //     const job = await prisma.Exam.create({
-  //       data: {
-  //         resume: data.resume,
-  //         name: data.name,
-  //         email: data.email,
-  //         coverLetter: data.coverLetter,
-  //         linkedin: data.linkedin,
-  //         portfolio: data.portfolio,
-  //         jobId: data.jobId,
-  //         userId: data.userId,
-  //         status: data.status,
-  //         role: data.role,
-  //         interview: "applied",
-  //       },
-  //     });
+  try {
+    const exams = await prisma.Exam.create({
+      data: {
+        title: data.title,
+        steps: data.steps,
+        applicantId: data.applicantId,
+      },
+    });
 
-  //     console.log(job);
-  //     if (!job) {
-  //       return NextResponse.json({
-  //         status: 400,
-  //         message: "Failed to create job",
-  //       });
-  //     } else {
-  //       return NextResponse.json({
-  //         status: 200,
-  //         message: "Job created successfully",
-  //         job,
-  //       });
-  //     }
-  //     //return job;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
+    console.log(exams);
+    if (!exams) {
+      return NextResponse.json({
+        status: 400,
+        message: "Failed to create exam",
+      });
+    } else {
+      return NextResponse.json({
+        status: 200,
+        message: "Exam created successfully",
+        exams,
+      });
+    }
+    //return job;
+  } catch (error) {
+    console.log(error);
+  }
 }

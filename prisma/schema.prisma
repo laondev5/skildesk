@@ -200,11 +200,9 @@ model Newsletter {
 }
 
 model Exam {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  type      String
-  questions Json[]
-  passScore Int
-
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  steps       Json[]
   applicantId String    @db.ObjectId
   applicant   Applicant @relation(fields: [applicantId], references: [id], onDelete: Cascade)
 }

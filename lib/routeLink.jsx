@@ -14,6 +14,8 @@ import {
   FileQuestion,
   Mail,
   MessageCircleMore,
+  ClipboardPlus,
+  BookCheck,
 } from "lucide-react";
 
 //import { signOut } from "next-auth/react";
@@ -47,6 +49,7 @@ export const AdminRouteLink = [
     icon: <Mail />,
   },
   { label: "Message", path: "/admin/message", icon: <MessageCircleMore /> },
+  { label: "Exams report", path: "/admin/report", icon: <ClipboardPlus /> },
 ];
 
 export const UserRouteLink = [
@@ -55,6 +58,7 @@ export const UserRouteLink = [
   { label: "My Jobs", path: "/user/jobs", icon: <Briefcase /> },
   // { label: "My Activity", path: "/user/activity", icon: <Target /> },
   { label: " Messages", path: "/user/message", icon: <Send /> },
+  { label: " Exams", path: "/user/exams", icon: <BookCheck /> },
   // { label: "Reports", path: "/user/report", icon: <MessageCircleWarning /> },
 ];
 
